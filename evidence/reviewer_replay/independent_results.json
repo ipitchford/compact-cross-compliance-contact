@@ -1,0 +1,170 @@
+{
+  "status": "PASS",
+  "scope": "Independent floating-point cross-checks, not formal proof or global energy certification",
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "mpmath": "1.3.0"
+  },
+  "independent_scalar_roots": [
+    {
+      "law": "ageing",
+      "regularisation": "truncated",
+      "roots": [
+        0.398224563090679,
+        4.878585832358223,
+        8.632309123706472
+      ],
+      "residual_max": 4.440892098500626e-16,
+      "scalar_energy_second_derivatives": [
+        1.700854728525769,
+        -0.07261409486477144,
+        0.04845323306134236
+      ],
+      "energy_values": [
+        {
+          "energy": -0.31580816979837356,
+          "quad_error_estimate": 1.6062529084592825e-10
+        },
+        {
+          "energy": 0.8487141940458738,
+          "quad_error_estimate": 1.5237748840490895e-09
+        },
+        {
+          "energy": 0.70978046734351,
+          "quad_error_estimate": 1.5224625149289248e-11
+        }
+      ]
+    },
+    {
+      "law": "ageing",
+      "regularisation": "asinh",
+      "roots": [
+        0.39582995563653367,
+        5.075266937383417,
+        7.986605282359973
+      ],
+      "residual_max": 8.881784197001252e-16,
+      "scalar_energy_second_derivatives": [
+        1.7029736852469666,
+        -0.05724503521302693,
+        0.04135042186617616
+      ],
+      "energy_values": [
+        {
+          "energy": -0.29752154890747773,
+          "quad_error_estimate": 2.4868632275869205e-13
+        },
+        {
+          "energy": 0.8909139926866789,
+          "quad_error_estimate": 3.631140451551722e-12
+        },
+        {
+          "energy": 0.8222684946657353,
+          "quad_error_estimate": 7.390814915427155e-11
+        }
+      ]
+    },
+    {
+      "law": "slip",
+      "regularisation": "truncated",
+      "roots": [
+        0.36030251586804324,
+        1.8479784153219172,
+        7.102134976265609
+      ],
+      "residual_max": 4.440892098500626e-16,
+      "scalar_energy_second_derivatives": [
+        1.0957276950218642,
+        -0.13057456215233396,
+        0.06681405290530404
+      ],
+      "energy_values": [
+        {
+          "energy": -0.23744658950775022,
+          "quad_error_estimate": 1.3180351412192456e-10
+        },
+        {
+          "energy": -0.1098764098949907,
+          "quad_error_estimate": 8.033922875278517e-11
+        },
+        {
+          "energy": -0.5352076897202096,
+          "quad_error_estimate": 1.5616677076529155e-13
+        }
+      ]
+    },
+    {
+      "law": "slip",
+      "regularisation": "asinh",
+      "roots": [
+        0.3537028608420744,
+        1.9343426494515963,
+        6.545627207115106
+      ],
+      "residual_max": 4.440892098500626e-16,
+      "scalar_energy_second_derivatives": [
+        1.1286783783814869,
+        -0.11848193802525422,
+        0.06393667671273513
+      ],
+      "energy_values": [
+        {
+          "energy": -0.21879609081344265,
+          "quad_error_estimate": 3.23082668413973e-11
+        },
+        {
+          "energy": -0.07956526877160197,
+          "quad_error_estimate": 7.89819765145694e-10
+        },
+        {
+          "energy": -0.38546923467893635,
+          "quad_error_estimate": 6.577579823286219e-10
+        }
+      ]
+    }
+  ],
+  "assembled_finite_elements": [
+    {
+      "elements": 8,
+      "assembled_impedance": 0.12503640755361511,
+      "assembled_cross": -0.08099013303732358,
+      "closed_formula_max_error": 2.220446049250313e-16,
+      "continuum_impedance_error": 3.6407553615114274e-05
+    },
+    {
+      "elements": 16,
+      "assembled_impedance": 0.12500911993875263,
+      "assembled_cross": -0.0810026480587098,
+      "closed_formula_max_error": 1.7763568394002505e-15,
+      "continuum_impedance_error": 9.119938752633061e-06
+    },
+    {
+      "elements": 32,
+      "assembled_impedance": 0.1250022811124878,
+      "assembled_cross": -0.08100575183455434,
+      "closed_formula_max_error": 2.6645352591003757e-15,
+      "continuum_impedance_error": 2.281112487789727e-06
+    },
+    {
+      "elements": 64,
+      "assembled_impedance": 0.12500057034861545,
+      "assembled_cross": -0.08100652621859436,
+      "closed_formula_max_error": 1.0658141036401503e-14,
+      "continuum_impedance_error": 5.70348615447358e-07
+    },
+    {
+      "elements": 128,
+      "assembled_impedance": 0.1250001425915741,
+      "assembled_cross": -0.08100671971712824,
+      "closed_formula_max_error": 7.105427357601002e-14,
+      "continuum_impedance_error": 1.4259157410378975e-07
+    }
+  ],
+  "smooth_radial_profile": {
+    "mass": "3.14159265358979323846264338328",
+    "Q0": "0.39269908169872415480783042291",
+    "QK": "-2.46740110027233965470862274997"
+  }
+}

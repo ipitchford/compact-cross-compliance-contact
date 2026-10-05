@@ -1,0 +1,194 @@
+{
+  "schema_version": "2.0",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "four multiplicity sign patterns",
+      "kind": "exact rational",
+      "status": "PASS",
+      "detail": "{'age_peak_lower': '17/6', 'age_valley_upper_asinh': '7799/2800', 'age_load': '14/5', 'slip_peak_lower': '21/8', 'slip_valley_upper_asinh': '593/245', 'slip_load': '5/2', 'method': 'Fraction arithmetic and positive exponential Taylor remainders'}"
+    },
+    {
+      "name": "state maps and sharp BE thresholds",
+      "kind": "exact symbolic",
+      "status": "PASS",
+      "detail": "All residuals simplify to zero"
+    },
+    {
+      "name": "3D isotropic halfspace symbol",
+      "kind": "exact symbolic",
+      "status": "PASS",
+      "detail": "Navier residuals, traction matrix, and inverse verified"
+    },
+    {
+      "name": "concentration constants and critical exponent",
+      "kind": "exact symbolic",
+      "status": "PASS",
+      "detail": "L defect=pi/8; K defect=-pi^2/4; critical p=4/3"
+    },
+    {
+      "name": "root illustrations",
+      "kind": "high-precision supplementary",
+      "status": "PASS",
+      "detail": "12 roots in the analytically certified disjoint intervals"
+    },
+    {
+      "name": "state-map edge cases",
+      "kind": "high-precision supplementary",
+      "status": "PASS",
+      "detail": "35 cases per law, including zero and tiny speed and large signed state"
+    },
+    {
+      "name": "sharp-threshold illustrations",
+      "kind": "high-precision supplementary",
+      "status": "PASS",
+      "detail": "Five parameter values; symbolic stationarity checked independently"
+    },
+    {
+      "name": "conforming slab discretisations",
+      "kind": "high-precision supplementary",
+      "status": "PASS",
+      "detail": "20 parameter/mesh cases, 60 roots; impedance errors decrease at approximately second order"
+    },
+    {
+      "name": "GKP logarithmic-state coordinate identity",
+      "kind": "exact symbolic",
+      "status": "PASS",
+      "detail": "See revision_verification.json for residuals and scope"
+    },
+    {
+      "name": "two-layer modes, tractions, reflection and small-k coefficient",
+      "kind": "exact symbolic",
+      "status": "PASS",
+      "detail": "See revision_verification.json for residuals and scope"
+    },
+    {
+      "name": "matched and mismatched finite-layer compliance",
+      "kind": "100-digit numerical illustration",
+      "status": "PASS",
+      "detail": "See revision_verification.json for residuals and scope"
+    },
+    {
+      "name": "stationary-root energies and scalar curvatures",
+      "kind": "40/70-digit numerical illustration",
+      "status": "PASS",
+      "detail": "See revision_verification.json for residuals and scope"
+    }
+  ],
+  "scope": "Supporting algebra and examples only; no formal verification of the analytic theorems",
+  "environment": {
+    "python": "3.13.5",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0",
+    "precision_decimal_digits": 80
+  },
+  "exact_multiplicity": {
+    "age_peak_lower": "17/6",
+    "age_valley_upper_asinh": "7799/2800",
+    "age_load": "14/5",
+    "slip_peak_lower": "21/8",
+    "slip_valley_upper_asinh": "593/245",
+    "slip_load": "5/2",
+    "method": "Fraction arithmetic and positive exponential Taylor remainders"
+  },
+  "halfspace": {
+    "DtN": "Matrix([[2*k*mu*(lambda + 2*mu)/(lambda + 3*mu), -2*I*k*mu**2/(lambda + 3*mu)], [2*I*k*mu**2/(lambda + 3*mu), 2*k*mu*(lambda + 2*mu)/(lambda + 3*mu)]])",
+    "NtD": "Matrix([[(lambda + 2*mu)/(2*k*mu*(lambda + mu)), I/(2*k*(lambda + mu))], [-I/(2*k*(lambda + mu)), (lambda + 2*mu)/(2*k*mu*(lambda + mu))]])",
+    "u3_from_t1_multiplier": "-i*xi_1/(2*(lambda+mu)*|xi|^2)",
+    "outward_un_from_t1_multiplier": "+i*xi_1/(2*(lambda+mu)*|xi|^2)",
+    "outward_normal": [
+      0,
+      0,
+      -1
+    ],
+    "component_relation": "u_n=-u_3"
+  },
+  "concentration": {
+    "disk_L_pairing": "pi/8",
+    "disk_K_pairing": "-pi^2/4",
+    "C1_radial_L_pairing": "pi/72",
+    "critical_pressure_exponent": "4/3"
+  },
+  "roots": [
+    {
+      "law": "ageing",
+      "regularisation": "truncated",
+      "load": "2.8",
+      "roots": [
+        "0.3982245630906790679299827523280325328920688",
+        "4.87858583235822292308037000888033553286019447",
+        "8.63230912370647658659470650867214572963192852"
+      ],
+      "residual_upper": "1.433e-69",
+      "assurance": "80-digit floating point; exact existence uses rational sign certificates"
+    },
+    {
+      "law": "ageing",
+      "regularisation": "asinh",
+      "load": "2.8",
+      "roots": [
+        "0.395829955636533879476110900770679447367953266",
+        "5.07526693738341733367921592252679281733956146",
+        "7.98660528235997680390137811848564224137700666"
+      ],
+      "residual_upper": "3.4456e-70",
+      "assurance": "80-digit floating point; exact existence uses rational sign certificates"
+    },
+    {
+      "law": "slip",
+      "regularisation": "truncated",
+      "load": "2.5",
+      "roots": [
+        "0.360302515868043180005078818081813960611924431",
+        "1.84797841532191654534978989846340384297254685",
+        "7.10213497626560689665402105242241397291310596"
+      ],
+      "residual_upper": "1.3314e-70",
+      "assurance": "80-digit floating point; exact existence uses rational sign certificates"
+    },
+    {
+      "law": "slip",
+      "regularisation": "asinh",
+      "load": "2.5",
+      "roots": [
+        "0.353702860842074662506974424253651753929172361",
+        "1.93434264945159585826016678052025466084507994",
+        "6.54562720711510433535787815725439678384052281"
+      ],
+      "residual_upper": "3.0498e-70",
+      "assurance": "80-digit floating point; exact existence uses rational sign certificates"
+    }
+  ],
+  "threshold_samples": [
+    {
+      "c": -5,
+      "beta_age": "0.99908977768709047607801356013592487",
+      "beta_slip": "0.99909142906031325459538166960494002",
+      "q_star": "1100.6295230450329568174300191633048"
+    },
+    {
+      "c": -2,
+      "beta_age": "0.98232878644914033148299398168361307",
+      "beta_slip": "0.98291457700108014435376615346372471",
+      "q_star": "58.529425935970109078008333496224657"
+    },
+    {
+      "c": 0,
+      "beta_age": "0.89283463147667506115311741630041621",
+      "beta_slip": "0.90922372177313240824109644657245039",
+      "q_star": "11.016093846685422797489031550470171"
+    },
+    {
+      "c": 2,
+      "beta_age": "0.63810374336511077852240738551988031",
+      "beta_slip": "0.74523686079884744045072459395332489",
+      "q_star": "3.9252146253796669985473439291332808"
+    },
+    {
+      "c": 5,
+      "beta_age": "0.31172652548333342574707369360624556",
+      "beta_slip": "0.51754081939995964950615174875033246",
+      "q_star": "2.0727142112961511856407773199097483"
+    }
+  ]
+}

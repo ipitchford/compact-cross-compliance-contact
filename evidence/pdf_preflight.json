@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reports": [
+    {
+      "path": "paper/manuscript.pdf",
+      "pages": 31,
+      "sha256": "62f3d93d9070b2578b6bdcf30f2304f405e71d079b69bc96e354e12cd18671a6",
+      "automated_issues": []
+    },
+    {
+      "path": "response/response.pdf",
+      "pages": 4,
+      "sha256": "22943c27d5b58902c35fbc42786caa41c343b45d158745065aecfe2e8fd911e3",
+      "automated_issues": []
+    }
+  ],
+  "render_check": "All content pages inspected in four 8-page montages; TOC orphan corrected; critical tables/theorems and response inspected at higher resolution. Final page-count change only removes orphaned TOC page.",
+  "latex_final_warnings": []
+}

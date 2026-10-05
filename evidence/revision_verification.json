@@ -1,0 +1,209 @@
+{
+  "status": "PASS",
+  "groups": [
+    {
+      "name": "GKP logarithmic-state coordinate identity",
+      "kind": "exact symbolic"
+    },
+    {
+      "name": "two-layer modes, tractions, reflection and small-k coefficient",
+      "kind": "exact symbolic"
+    },
+    {
+      "name": "matched and mismatched finite-layer compliance",
+      "kind": "100-digit numerical illustration"
+    },
+    {
+      "name": "stationary-root energies and scalar curvatures",
+      "kind": "40/70-digit numerical illustration"
+    }
+  ],
+  "coordinate_shift": {
+    "ageing_residual": "0",
+    "slip_residual": "0",
+    "shift": "alpha = alpha_G + log(V_star/L)",
+    "meaning": "Same logarithmic implicit-Euler state equations; integrator not new."
+  },
+  "elastic": {
+    "Navier_modes_residuals": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "traction_matrix_residuals": "zero",
+    "nilpotent_mode_matrices": "N_minus^2=N_plus^2=0",
+    "top_clamp_reflection_residual": "zero",
+    "outward_normal": "-e_3 for upper layer",
+    "cartesian_u3_from_t1": "-i*xi_1/[2*(lambda+mu)*|xi|^2]",
+    "outward_un_from_t1": "+i*xi_1/[2*(lambda+mu)*|xi|^2]",
+    "relative_outward_normal_symbol": "i*(chi_plus-chi_minus)*(xi dot s)/|xi|^2",
+    "matched_chi": "1/6",
+    "one_layer_small_k_cross_coefficient": "-H**2*(lambda - mu)/(2*mu*(lambda + 2*mu))",
+    "matched_layer_difference_small_k_coefficient": "-7/40",
+    "scope": "Exact identities only; compactness and contact existence require analytic proofs."
+  },
+  "finite_layer_spectrum": [
+    {
+      "k": "0.0001",
+      "matched_cross": "-0.00001749999974708333654923607026689040109205327651023824317837957735398523",
+      "k_times_matched_cross": "-0.000000001749999974708333654923607026689040109205327651023824317837957735398523",
+      "mismatched_cross": "-0.00001249999983449074298553237704635334862889166011847193580712583009834786",
+      "k_times_mismatched_cross": "-0.000000001249999983449074298553237704635334862889166011847193580712583009834786"
+    },
+    {
+      "k": "0.01",
+      "matched_cross": "-0.001749747115488277209061451642809126542452631155047189272567370833956287",
+      "k_times_matched_cross": "-0.00001749747115488277209061451642809126542452631155047189272567370833956287",
+      "mismatched_cross": "-0.001249834513185621708638796092156698904747329782306862035059771737063188",
+      "k_times_mismatched_cross": "-0.00001249834513185621708638796092156698904747329782306862035059771737063188"
+    },
+    {
+      "k": "0.1",
+      "matched_cross": "-0.01725025890548005975421609237040847980855434972093653321568181604035428",
+      "k_times_matched_cross": "-0.001725025890548005975421609237040847980855434972093653321568181604035428",
+      "mismatched_cross": "-0.01233670557275121756923547002883463278141902633339619026873627452133752",
+      "k_times_mismatched_cross": "-0.001233670557275121756923547002883463278141902633339619026873627452133752"
+    },
+    {
+      "k": "1",
+      "matched_cross": "-0.06391900198163043598845640519792601630888431637040152836932398370894681",
+      "k_times_matched_cross": "-0.06391900198163043598845640519792601630888431637040152836932398370894681",
+      "mismatched_cross": "-0.05460135081136670857476658759222145369203685774109278721448329026303137",
+      "k_times_mismatched_cross": "-0.05460135081136670857476658759222145369203685774109278721448329026303137"
+    },
+    {
+      "k": "2",
+      "matched_cross": "-0.02506331324469246395738626901293319098570988547623064783350438642069704",
+      "k_times_matched_cross": "-0.05012662648938492791477253802586638197141977095246129566700877284139408",
+      "mismatched_cross": "-0.04043756814815066435713773709491015245877802956197990765445470580875109",
+      "k_times_mismatched_cross": "-0.08087513629630132871427547418982030491755605912395981530890941161750218"
+    },
+    {
+      "k": "4",
+      "matched_cross": "-0.001162153327189424403873346395857441841722066085680883358983487803905274",
+      "k_times_matched_cross": "-0.004648613308757697615493385583429767366888264342723533435933951215621095",
+      "mismatched_cross": "-0.02092721742193939305807165505979255353256069210406349689597362320880405",
+      "k_times_mismatched_cross": "-0.08370886968775757223228662023917021413024276841625398758389449283521621"
+    },
+    {
+      "k": "8",
+      "matched_cross": "-0.0000007962138574811083967584272201822396760644107022769420927764768267199547",
+      "k_times_matched_cross": "-0.000006369710859848867174067417761457917408515285618215536742211814613759638",
+      "mismatched_cross": "-0.01041675086729712902822115274645996240119320197613701753119535365934875",
+      "k_times_mismatched_cross": "-0.08333400693837703222576922197167969920954561580909614024956282927479001"
+    },
+    {
+      "k": "16",
+      "matched_cross": "-0.0000000000001794039864812580311249379351580969839075315549324765052082486431918457",
+      "k_times_matched_cross": "-0.000000000002870463783700128497999006962529551742520504878919624083331978291069532",
+      "mismatched_cross": "-0.005208333333353268400873345202801723204313993054402480320795603421124546",
+      "k_times_mismatched_cross": "-0.08333333333365229441397352324482757126902388887043968513272965473799274"
+    },
+    {
+      "k": "32",
+      "matched_cross": "-4.545244614117354915274588895462660591210170550666169303260655996929306e-27",
+      "k_times_matched_cross": "-1.454478276517553572887868446548051389187254576213174177043409919017378e-25",
+      "mismatched_cross": "-0.002604166666666666666666667177811778181364919895980503123554713984847342",
+      "k_times_mismatched_cross": "-0.08333333333333333333333334968997690180367743667137609995375084751511494"
+    },
+    {
+      "k": "64",
+      "matched_cross": "-1.45804208247128010054042503043084808386833991089838896075269994963035e-54",
+      "k_times_matched_cross": "-9.331469327816192643458720194757427736757375429749689348817279677634241e-53",
+      "mismatched_cross": "-0.001302083333333333333333333333333333333333333333333333497788388045067796",
+      "k_times_mismatched_cross": "-0.08333333333333333333333333333333333333333333333333334385845683488433891"
+    }
+  ],
+  "energies": [
+    {
+      "law": "ageing",
+      "regularisation": "truncated",
+      "roots": [
+        "0.3982245630906790679299828",
+        "4.87858583235822292308037",
+        "8.632309123706476586594707"
+      ],
+      "energies": [
+        "-0.31580816979943485615509336126",
+        "0.848714194122492104359340107093",
+        "0.70978046734414882430728033206"
+      ],
+      "scalar_curvatures": [
+        "1.70085472799674946892546857667",
+        "-0.0726140948575179172402967775378",
+        "0.0484532330695637040911398983279"
+      ],
+      "lowest_among_displayed_roots": 1,
+      "precision_comparison_max_difference": "2.05742e-40",
+      "assurance": "Numerical quadrature at 40/70 digits, not interval certification or global-minimizer classification."
+    },
+    {
+      "law": "ageing",
+      "regularisation": "asinh",
+      "roots": [
+        "0.3958299556365338794761109",
+        "5.075266937383417333679216",
+        "7.986605282359976803901378"
+      ],
+      "energies": [
+        "-0.297521548907477680903866423042",
+        "0.890913992686680661909121533504",
+        "0.822268494665731944361913278773"
+      ],
+      "scalar_curvatures": [
+        "1.70297368470188268400195875178",
+        "-0.0572450352070471372279899555808",
+        "0.0413504218749271958660391085796"
+      ],
+      "lowest_among_displayed_roots": 1,
+      "precision_comparison_max_difference": "1.06629e-40",
+      "assurance": "Numerical quadrature at 40/70 digits, not interval certification or global-minimizer classification."
+    },
+    {
+      "law": "slip",
+      "regularisation": "truncated",
+      "roots": [
+        "0.3603025158680431800050788",
+        "1.84797841532191654534979",
+        "7.102134976265606896654021"
+      ],
+      "energies": [
+        "-0.237446589507891589253597531001",
+        "-0.109876409898286324761623652134",
+        "-0.535207689717474229287762991689"
+      ],
+      "scalar_curvatures": [
+        "1.09572769427111206531689942289",
+        "-0.130574562156803086161540076182",
+        "0.0668140529094227126660370489209"
+      ],
+      "lowest_among_displayed_roots": 3,
+      "precision_comparison_max_difference": "1.13777e-40",
+      "assurance": "Numerical quadrature at 40/70 digits, not interval certification or global-minimizer classification."
+    },
+    {
+      "law": "slip",
+      "regularisation": "asinh",
+      "roots": [
+        "0.3537028608420746625069744",
+        "1.934342649451595858260167",
+        "6.545627207115104335357878"
+      ],
+      "energies": [
+        "-0.218796090813435816421031485557",
+        "-0.0795652687715971829839625193191",
+        "-0.385469234678851570801417837743"
+      ],
+      "scalar_curvatures": [
+        "1.12867837758107740380857418992",
+        "-0.118481938020791044421909899898",
+        "0.0639366767158799772653747231641"
+      ],
+      "lowest_among_displayed_roots": 3,
+      "precision_comparison_max_difference": "2.07535e-40",
+      "assurance": "Numerical quadrature at 40/70 digits, not interval certification or global-minimizer classification."
+    }
+  ],
+  "analytic_scope": "No computation proves the pseudomonotone VI theorem or the curved-boundary compactness argument."
+}

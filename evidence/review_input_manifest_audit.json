@@ -1,0 +1,34 @@
+{
+  "all_match": true,
+  "count": 7,
+  "files": [
+    {
+      "path": "README.md",
+      "match": true
+    },
+    {
+      "path": "audit_record.json",
+      "match": true
+    },
+    {
+      "path": "author_replay/finite_element_slabs.csv",
+      "match": true
+    },
+    {
+      "path": "author_replay/verification.json",
+      "match": true
+    },
+    {
+      "path": "author_replay/verification.log",
+      "match": true
+    },
+    {
+      "path": "independent_checks.py",
+      "match": true
+    },
+    {
+      "path": "independent_results.json",
+      "match": true
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "candidate": "Cross-compliance compactness in three-dimensional frictional contact",
+  "version": "2.1.0-candidate",
+  "date": "2026-10-05",
+  "publication_status": "revised_research_candidate_supplied_review_actioned_no_authenticated_independent_review",
+  "all_original_targets_resolved": false,
+  "independent_referee_review": false,
+  "proof_assistant_verification": false,
+  "computational_replay": "PASS_12_groups_supporting_checks_only",
+  "priority_established": false,
+  "completed_results": [
+    "Compact-cross-compliance existence theorem for actual incremental Signorini-Coulomb contact with unknown normal reaction",
+    "Smooth matched lambda+mu closed-interface 3D two-body realisation, arbitrary finite nonnegative W1-infinity friction",
+    "Strong solution stability under load/gap/old-slip perturbations",
+    "Reaction-cone approximation convergence with exact frozen elastic response",
+    "Iff unrestricted dominated weak-product property in the smooth two-body class and localised mismatched defect",
+    "Exact finite-layer cross compliance and nonzero low-frequency coupling in a matched non-identical pair",
+    "All scoped v1 analytic results retained with corrected novelty positioning",
+    "Numerical energy/curvature annotation with no global-minimiser or dynamics claim",
+    "Explicit continuity topology and machine-readable sign convention"
+  ],
+  "prior_work_not_claimed_new": [
+    {
+      "claim": "Logarithmic Euler state formulation",
+      "source": "PSK (2015); GKP (2024)"
+    },
+    {
+      "claim": "Arbitrary-step frozen-rate-flow existence for both laws, pure elasticity",
+      "source": "Pipping thesis (2014), Corollary 3.8"
+    },
+    {
+      "claim": "Elimination can lose convexity",
+      "source": "Pipping et al. (2016), Section 2.3"
+    },
+    {
+      "claim": "Half-space elastic similarity cancellation",
+      "source": "Classical contact theory; Argatov and Mishuris (2018) screened"
+    },
+    {
+      "claim": "Normal-reaction formulation and pseudomonotone existence",
+      "source": "Ballard and Iurlano; Brezis"
+    },
+    {
+      "claim": "Smooth elastic Dirichlet-to-Neumann principal symbol",
+      "source": "Tan and Liu (2023)"
+    }
+  ],
+  "unresolved_gates": [
+    {
+      "id": "G1",
+      "target": "General multidimensional continuous-time purely elastic rate-and-state existence",
+      "missing": "Uniform boundary-velocity/state compactness or a justified weaker solution framework for the h-to-zero limit"
+    },
+    {
+      "id": "G2",
+      "target": "General continuous-time slip-law well-posedness",
+      "missing": "Identification and control of the coupled nonlinear boundary/state terms beyond the homogeneous sector"
+    },
+    {
+      "id": "G3",
+      "target": "General nonlinear in-plane bimaterial sliding",
+      "missing": "Along-interface dependence and coupled dynamic normal stress, rather than prescribed pressure"
+    },
+    {
+      "id": "G4",
+      "target": "Arbitrary-coefficient 3D incremental Signorini-Coulomb contact",
+      "missing": "General mismatched, rough, contact-edge or evolving geometry not covered by the matched closed-interface theorem; no nonlinear nonexistence example"
+    },
+    {
+      "id": "G5",
+      "target": "Independent specialist review of new contact results",
+      "missing": "Audit of the type-(S)+ proof, boundary-symbol cancellation, localised defect and novelty"
+    },
+    {
+      "id": "G6",
+      "target": "Complete global-minimiser classification of illustrative scalar examples",
+      "missing": "Not asserted; numerical table ranks displayed roots only"
+    }
+  ],
+  "not_claimed": [
+    "That Ballard-Iurlano 2D results are false",
+    "That the 3D kernel counterexample proves contact nonexistence",
+    "That a prescribed-pressure result solves for the unknown normal reaction",
+    "That small-step or arbitrary-step existence proves a continuous-time limit",
+    "That numerical residuals formalize the analytic proofs",
+    "That the project is a complete solution of Problem 4",
+    "Matching is necessary for actual contact existence",
+    "A REF rating has been awarded",
+    "The supplied v1 audit reviewed the new v2 theorems"
+  ],
+  "supplied_review_of_v1": "AI-assisted review; regression replay reproduced; not specialist certification",
+  "new_v2_theorems_independently_reviewed": false,
+  "ref_four_star_attained": false,
+  "review_actions_completed": true,
+  "publication_priority_established": false
+}

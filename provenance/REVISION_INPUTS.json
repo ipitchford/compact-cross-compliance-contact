@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-05",
+  "inputs": [
+    {
+      "filename": "evidence_press_problem4_friction_candidate_v1_0.zip",
+      "bytes": 358268,
+      "sha256": "77e283d687d838e5f70c5f715da1f469c52781989aa5e94e305eb6c306018a76"
+    },
+    {
+      "filename": "Evidence_Press_Problem4_Friction_Candidate_v1_0.pdf",
+      "bytes": 310817,
+      "sha256": "c0cbc1957fc128ca39001b87997b5b81d4bbcebac2d723a985846a357c23ee39"
+    },
+    {
+      "filename": "Pasted text(20261005-190942).txt",
+      "bytes": 31500,
+      "sha256": "0e5363eafcd09986394bb40a2319c0406c2922bb04eca542b1d64dd985bc2bfd"
+    },
+    {
+      "filename": "friction_referee_audit_2026-10-05(1).zip",
+      "bytes": 12684,
+      "sha256": "fee2ca787a3ccb0f6af54ea6bf69538e8f8f71a12542c6e449966e7c34e7ab4c"
+    }
+  ],
+  "basis": "Review and v1.0 package supplied by user; originals not altered"
+}

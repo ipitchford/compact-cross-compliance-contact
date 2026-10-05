@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-05",
+  "closed_in_this_revision": [
+    "Referee 4.1: exact state-coordinate identity and source-by-source comparison",
+    "Referee 4.2: mathematical opening and hierarchy",
+    "Referee 4.3: all negative-result scope distinctions preserved",
+    "Referee 4.4: root-energy interpretation and numerical annotations",
+    "Minor: characteristic continuity topology",
+    "Minor: machine-readable displacement sign convention",
+    "Optional research: actual compact-cross-compliance contact theorem and matched bounded-body realisation"
+  ],
+  "remaining": [
+    {
+      "id": "G1",
+      "target": "General multidimensional continuous-time purely elastic rate-and-state existence",
+      "missing": "Uniform boundary-velocity/state compactness or a justified weaker solution framework for the h-to-zero limit"
+    },
+    {
+      "id": "G2",
+      "target": "General continuous-time slip-law well-posedness",
+      "missing": "Identification and control of the coupled nonlinear boundary/state terms beyond the homogeneous sector"
+    },
+    {
+      "id": "G3",
+      "target": "General nonlinear in-plane bimaterial sliding",
+      "missing": "Along-interface dependence and coupled dynamic normal stress, rather than prescribed pressure"
+    },
+    {
+      "id": "G4",
+      "target": "Arbitrary-coefficient 3D incremental Signorini-Coulomb contact",
+      "missing": "General mismatched, rough, contact-edge or evolving geometry not covered by the matched closed-interface theorem; no nonlinear nonexistence example"
+    },
+    {
+      "id": "G5",
+      "target": "Independent specialist review of new contact results",
+      "missing": "Audit of the type-(S)+ proof, boundary-symbol cancellation, localised defect and novelty"
+    },
+    {
+      "id": "G6",
+      "target": "Complete global-minimiser classification of illustrative scalar examples",
+      "missing": "Not asserted; numerical table ranks displayed roots only"
+    }
+  ],
+  "stop_basis": "The requested review revisions and a coherent additional actual-contact theorem/classification/stability branch are written and checked. New analytic claims require external specialist review; no assertion that the general research field is exhausted."
+}

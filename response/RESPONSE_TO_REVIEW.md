@@ -1,0 +1,92 @@
+# Response to the supplied referee review
+## Revised candidate v2.0 — 5 October 2026
+
+**Revised title:** Cross-compliance compactness in three-dimensional frictional contact: Matched-interface existence and implicit rate-and-state refinements.
+
+The four major and five minor comments have been actioned. The optional research recommendation has also been developed into a new actual-contact theorem and related results. No original theorem has been strengthened by dropping assumptions without proof. The v1.0 audit is preserved; its favourable mathematical assessment does not certify the new v2.0 theorems.
+
+## Major comment 4.1 — logarithmic-Euler prior art
+**Addressed in Section 6, Equation 6.1, Table 1 and the literature audit.**
+
+Gräser, Kornhuber and Podlesny (2024) already use logarithmic state and implicit Euler. Under alpha = alpha_G + log(V_star/L), with the same shift of the old state, their equations (20), (21) and (43) reproduce both state equations used here. Both residuals simplify exactly to zero in the expanded verifier. The revised manuscript therefore makes no claim of a new state coordinate or state integrator.
+
+Table 1 compares five entries: Pipping–Sander–Kornhuber; the Pipping thesis; Gräser–Kornhuber–Podlesny; the 2016 numerical paper; and the present fixed-trace theorem. It records the mechanical form, viscosity treatment, geometry, prescribed normal-pressure factor, regularisation, old-state integrability, state integrator and actual coupled or separate conclusion.
+
+The 2024 citation chain was inspected rather than repeated. Its reference [30], thesis Corollary 3.8, uses an exact frozen-rate flow. Its reference [33], Theorem 5.14 of the earlier paper, proves an ageing-law result with b/a<2 and additional old-state integrability, although the later sentence associates that citation with Ruina's law. These particular predecessors do not, by themselves, prove the full coupled logarithmic-Euler conclusion under the revised theorem's hypotheses. This is a statement/hypothesis mismatch, not a refutation of the later model, separate-subproblem results or simulations.
+
+The retained existence theorem is now presented as a **self-contained proof with specified extensions**. Unconditional exact-flow existence and the recognised loss of convexity after elimination are credited. The current-rate radial primitive is not asserted to be a potential for every midpoint-vector or evolving-contact-map variant.
+
+## Major comment 4.2 — opening and contribution hierarchy
+**Addressed in the title, abstract, Section 1, new Sections 4–5 and closing claim statement.**
+
+The original research-brief narrative has been removed from the scientific opening. The new leading contribution is an actual three-dimensional incremental contact theorem, supported by an operator classification. The prescribed-pressure rate-and-state results are a separately identified second part, with pure-elastic uniqueness, exact constitutive thresholds and continuum multiplicity identified as the more distinctive refinements. Fixed-step global-minimiser approximation and the homogeneous characteristic model remain supporting results.
+
+A unified paper was retained because the contact and prescribed-pressure analyses now have explicit model boundaries. The manuscript grew from 21 to 31 pages through new arguments and the source comparison, not a claim that more pages constitute greater significance.
+
+## Major comment 4.3 — logical scope of negative results
+**Addressed throughout, particularly Sections 3.3, 5.2 and 14.**
+
+The kernel counterexample remains a dominated-field result. The new Theorem 5.3 transfers it to the actual linear elastic cross operator of smooth bounded bodies, but the constructed fields are not asserted to satisfy their nonlinear contact conditions. Failure of the unrestricted pairing property is not contact nonexistence. The retained Proposition 3.4 still blocks the simplest positive-bubble route through fixed-data frozen minimisers.
+
+The new positive theorem solves the actual unknown-reaction incremental contact problem only under its stated compactness/matching assumptions. Equality of lambda+mu is sufficient for existence; the iff result concerns the unrestricted weak-product property, not existence itself. Contact edges, rough coefficients, unmatched interfaces and continuous-time evolution remain outside the conclusion.
+
+The Lq and traction-ratio repair assumptions are not presented as automatic regularity properties of solutions. Discrete multiplicity is not claimed to imply continuous-time nonuniqueness. These qualifications appear in the manuscript, status file, claim ledger, falsifier ledger and release description.
+
+## Major comment 4.4 — stationary roots, minimisers and stability
+**Addressed in Section 11 and Table 4.**
+
+The revised code integrates the scalar primitive and evaluates the derivative at each of the twelve displayed roots, independently repeating the quadrature at 40 and 70 decimal digits. Their maximum cross-precision differences are below 2.1e-40. The energy table is expressly numerical, not an interval certificate.
+
+All four examples have a numerically negative scalar curvature at the middle root and positive restricted curvature at the outer roots. The lowest displayed energy occurs at the first branch for ageing and at the third for slip. The text distinguishes: (a) a stationary root; (b) a minimum in the one-dimensional reduced family; (c) a global minimiser of the full variational problem; and (d) dynamic stability. Positive scalar curvature establishes none of the stronger classifications by itself. The table does not certify that all roots have been enumerated, and does not declare a global minimiser.
+
+The fixed-step Galerkin theorem now explicitly cross-refers to this distinction. It continues to concern exact global minimisers, not whatever branch an unspecified nonlinear solver returns.
+
+## Minor comments
+
+**M1. Continuity topology — addressed in Theorem 13.1.** With material parameters fixed, incoming signals and prescribed pressure converge in L-infinity on bounded finite-time sets; the initial state converges in the real line. The state then converges uniformly and interface velocity/traction converge in L-infinity. Local essential-supremum convergence of initial characteristic fields and locally uniform initial displacements give the corresponding reconstructed-field and displacement statements. The proof uses essential-supremum, not ambiguous pointwise uniform, input convergence.
+
+**M2. Machine-readable component — addressed in the code and JSON.** The ambiguous `cross_multiplier` output was replaced by `u3_from_t1_multiplier` and `outward_un_from_t1_multiplier`. The outward normal of the upper half-space is explicitly -e3, so un=-u3. The two-layer checks use the same convention and verify the reflection sign exactly.
+
+**M3. Sharpness — addressed.** The abstract and opening qualify sharpness as constitutive monotonicity (and the separately identified critical exponent/operator classification). The mechanical uniqueness condition remains sufficient and is not labelled sharp.
+
+**M4. Process language — addressed.** The opening no longer describes completion of a supplied assignment. Original target boundaries remain in the concluding scope section and package provenance where they are useful.
+
+**M5. Verification language — preserved and strengthened.** Numerical illustrations, exact algebraic identities, analytic functional-analytic arguments, and independent review are distinct. No proof-assistant or human specialist certification is claimed. Replaying the supplied audit is explicitly a v1.0 regression check, not review of the new contact theorem.
+
+## Optional research recommendation — actual-contact consequences
+
+The reviewer suggested that a consequence for actual operators or solution sequences could increase significance. This revision supplies the following coherent chain.
+
+**Theorem 4.1.** For a coercive elastic form and a surjective joint normal/tangential trace, compact cross compliance C_nt gives existence of actual incremental Signorini–Coulomb contact, with the normal reaction unknown and arbitrary finite nonnegative W1-infinity friction. The proof reconstructs the tangential reaction from the frozen Euler inequality, obtains uniform normal strong monotonicity, proves type-(S)+ and coercivity, and applies the established pseudomonotone variational-inequality theorem. A compact weighted block C_nt M_f suffices as well.
+
+**Corollaries 4.2–4.3.** Solutions have strongly convergent subsequences under strongly converging loads, gaps and old slip. Finite-dimensional reaction cones with strong recovery also converge strongly when the frozen elastic response is exact. No uniqueness or arbitrary fully discrete solver convergence is implied.
+
+**Lemma 5.1 and Theorem 5.2.** For smooth isotropic bounded bodies sharing a closed smooth component, with remote clamped boundary components, the principal normal–tangential cross symbol is i(chi_plus-chi_minus)(xi dot s)/|xi|^2, where chi=1/[2(lambda+mu)]. Equality of lambda+mu on the interface lowers the cross block from order minus one to at most minus two, giving the compactness required by the actual contact theorem. The material tensors need not be identical and the geometry need not have reflection symmetry. The principal-symbol calculation is grounded in Tan–Liu's established theorem; classical elastic similarity is credited.
+
+**Theorem 5.3.** In that smooth two-body class, the unrestricted dominated weak-product property holds iff the cross coefficient matches everywhere. At a mismatch point x0, smooth concentrating fields yield defect (chi_plus-chi_minus)(x0) pi/8. This is an exact boundary for that property, not a necessary existence condition.
+
+**Section 5.3.** Exact finite-layer modes, traction matrices and the clamped response give an elementary realisation. For the non-identical matched pair (lambda,mu)=(2,1),(1,2), principal coupling cancels while the low-frequency cross coefficient differs by -7/40 times k. Thus the result permits compact nonzero coupling rather than assuming perfect global decoupling.
+
+## Verification and remaining judgement
+
+The revised main replay passes twelve groups, including four new groups. All seventeen v1.0 input hashes and all seven referee-audit hashes matched. Fresh v1.0 main output and the unchanged referee JSON reproduced byte-for-byte. The new finite-layer identities and coordinate shift are exact symbolic checks; energy and spectral samples are numerical support only.
+
+One development-stage assertion failed because a 100-digit spectral value was serialised to 40 significant digits before comparison at tolerance 1e-45. Serialisation was increased to 70 digits while retaining calculation precision and tolerance. The proof and implementation audit records the correction.
+
+The review's significance concern is addressed by an actual-contact existence theorem and an exact operator classification. The new mathematics still needs specialist scrutiny, and older/unindexed contact literature remains a priority-search gap. The package is closer to the requested standard in a specific mathematical sense; it does not claim an achieved four-star rating or a complete solution of the general friction questions.
+
+## Sources added or central to this response
+
+### Contact analysis
+Ballard, P., & Iurlano, F. (2024). Existence results for the time-incremental elastic contact problem with Coulomb friction in 2D. *Mathematical Models and Methods in Applied Sciences, 34*(12), 2217–2263. https://doi.org/10.1142/S0218202524500477
+
+Brézis, H. (1968). Équations et inéquations non linéaires dans les espaces vectoriels en dualité. *Annales de l'Institut Fourier, 18*(1), 115–175. https://doi.org/10.5802/aif.280
+
+Tan, X., & Liu, G. (2023). Determining Lamé coefficients by the elastic Dirichlet-to-Neumann map on a Riemannian manifold. *Inverse Problems, 39*(9), 095004. https://doi.org/10.1088/1361-6420/ace649
+
+### Rate-and-state attribution
+Gräser, C., Kornhuber, R., & Podlesny, J. (2024). Numerical simulation of multiscale fault systems with rate- and state-dependent friction. *Computational Geosciences, 28*, 1–21. https://doi.org/10.1007/s10596-023-10231-4
+
+Pipping, E., Kornhuber, R., Rosenau, M., & Oncken, O. (2016). On the efficient and reliable numerical solution of rate-and-state friction problems. *Geophysical Journal International, 204*(3), 1858–1866. https://doi.org/10.1093/gji/ggv512
+
+Further references, exact statement locations, access levels and search limits are recorded in the manuscript and `notes/LITERATURE_AUDIT.md`.

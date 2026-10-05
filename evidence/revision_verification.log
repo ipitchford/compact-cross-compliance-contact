@@ -1,0 +1,4 @@
+PASS [exact symbolic] GKP logarithmic-state coordinate identity
+PASS [exact symbolic] two-layer modes, tractions, reflection and small-k coefficient
+PASS [100-digit numerical illustration] matched and mismatched finite-layer compliance
+PASS [40/70-digit numerical illustration] stationary-root energies and scalar curvatures

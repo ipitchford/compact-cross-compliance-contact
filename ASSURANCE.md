@@ -1,0 +1,5 @@
+# Assurance boundary
+
+Unrefereed mathematical candidate v2.1. The central infinite-dimensional existence and boundary-calculus arguments are written proofs, not formal verification. Exact symbolic and rational computations support stated identities; numerical spectra, roots, energies and curvatures are supplementary, not interval certificates. Current publication replay is internal. Supplied review identity and independence are not authenticated; the preserved older reviewer script concerns v1 and does not independently check the v2 contact theorem.
+
+The result concerns incremental contact for a specified compact-cross-compliance class. Smooth matched closed interfaces and remote anchoring are substantive hypotheses. Matching is sufficient for contact existence; its necessity is asserted only for the unrestricted dominated weak-product property. The separate rate-and-state results prescribe pressure. No general multidimensional continuous-time or dissimilar-material theorem, practical solver convergence, empirical validation, exhaustive priority or official REF rating is claimed.

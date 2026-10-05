@@ -1,0 +1,17 @@
+{
+  "schemaVersion":"1.0",
+  "contributionMap":[
+    {"claim":"Compact cross compliance implies incremental unknown-pressure Coulomb existence", "unit":"statement", "paperLocation":"Theorem 4.1; Theorem 5.2", "searches":[{"date":"2026-10-05","query":"Coulomb compact cross compliance existence friction three dimensional","corpus":"web and primary arXiv papers"}],"closestPriorWork":"Ballard and Iurlano Theorems 2.12–2.13; Jarusek 1983 Theorems 2.2–3.1","verdict":"new-in-bounded-search"},
+    {"claim":"Normal-reaction variational formulation and pseudomonotonicity", "unit":"method","paperLocation":"Section 4","searches":[{"date":"2026-10-05","query":"Ballard Iurlano Appendix A pseudomonotone theorem","corpus":"arXiv 2303.16298v2 full text"}],"closestPriorWork":"Brezis Corollary 30; Ballard Iurlano Appendix A.3","verdict":"known-cited"}
+  ],
+  "sourcesReadInFull":[
+    {"citation":"Ballard and Iurlano arXiv 2303.16298v2","usedFor":"normal reaction and VI; comparison","readWhat":"Affected full-text proof steps and hypotheses in Section 2 and Appendix A; retained earlier source audit for unchanged dependencies","date":"2026-10-05","evidenceLocator":"https://arxiv.org/html/2303.16298v2"},
+    {"citation":"Tan and Liu arXiv 2211.06650v1","usedFor":"elastic principal symbol","readWhat":"Theorem 1.1 exact symbol and assumptions, applied through explicit manuscript inversion and projection","date":"2026-10-05","evidenceLocator":"https://arxiv.org/html/2211.06650v1"},
+    {"citation":"Dyatlov 2010 notes","usedFor":"pseudodifferential calculus","readWhat":"Section 3, pages 7–9, algebra, support, Sobolev mapping, principal symbol and parametrix","date":"2026-10-05","evidenceLocator":"https://math.mit.edu/~dyatlov/files/2010/psdoer.pdf"}
+  ],
+  "limitationTriage":[
+    {"limitation":"General mismatched contact and continuous-time evolution","closingQuestion":"Does the compact-block argument cover them?","triedOrSearched":"Inspected proof hypotheses and concentration obstruction; prescribed-pressure model does not substitute for unknown pressure.","estimatedCost":"New research, not bounded revision","cheap":false,"decision":"OPEN","reasonOpen":"Missing compactness and evolution estimates","whyNotClosedNow":"No established implication supplies these stronger conclusions."},
+    {"limitation":"Uncertified numerical curvatures","closingQuestion":"Are intervals needed for multiplicity?","triedOrSearched":"Multiplicity uses exact rational sign changes, not curvature.","estimatedCost":"Separate interval implementation","cheap":false,"decision":"OPEN","reasonOpen":"Supplementary numerical illustration only","whyNotClosedNow":"Not load-bearing; wording narrowed instead."}
+  ],
+  "extensionScout":{"by":"Codex publication agent","date":"2026-10-05","proposals":["Endpoint measure lemma","Fail-closed optimized checks"],"actions":["Added explicit density and weighted-factorisation argument","Replaced assertions with explicit failures and tested six mutations"]}
+}

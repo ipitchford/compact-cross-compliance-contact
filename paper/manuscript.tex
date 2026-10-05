@@ -1,0 +1,1362 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=26mm,headheight=15pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype,booktabs,array,enumitem,fancyhdr}
+\usepackage[hidelinks,breaklinks]{hyperref}
+\usepackage{longtable}
+\hypersetup{pdftitle={Cross-compliance compactness in three-dimensional frictional contact},pdfauthor={},pdfsubject={Matched-interface existence and implicit rate-and-state refinements; revised candidate v2.1}}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{12pt}
+\emergencystretch=2em
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Three-dimensional frictional contact}
+\fancyhead[R]{\small Revised candidate v2.1}
+\fancyfoot[C]{\thepage}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{measurelemma}{Endpoint measure lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\pos}[1]{[#1]_+}
+\newcommand{\asinh}{\operatorname{arsinh}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\weak}{\rightharpoonup}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\A}{\mathcal A}
+\newcommand{\J}{\mathcal J}
+\newcommand{\E}{\mathcal E}
+\newcommand{\V}{\mathcal V}
+\newcommand{\Hh}{H^{-1/2}}
+\newcommand{\Hdot}{\dot H^{-1/2}}
+\newcommand{\tr}{\mathcal T}
+\numberwithin{equation}{section}
+\title{\vspace{-13mm}\textbf{Cross-compliance compactness in\\ three-dimensional frictional contact}\\[5pt]\large Matched-interface existence and implicit rate-and-state refinements}
+\author{Anonymous\\\small Evidence Press candidate v2.1}
+\date{5 October 2026}
+\begin{document}
+\maketitle
+\begin{center}\small Unrefereed candidate. DOI: \url{https://doi.org/10.5281/zenodo.23171696}\end{center}
+\begin{abstract}
+We identify a sufficient operator condition for actual three-dimensional incremental Signorini--Coulomb contact with arbitrarily large friction: compactness of the elastic map from tangential traction to normal displacement. The associated normal-reaction operator is coercive and of type $(S)_+$, giving existence, strong solution compactness under data perturbations, and convergent reaction-space approximations. For smooth anchored isotropic bodies sharing a closed smooth interface, the condition follows from equality of $\lambda+\mu$ on the two sides. The leading cross symbol then cancels while lower-order coupling may remain. An exact finite-layer calculation demonstrates this distinction for non-identical materials.
+
+We also determine the exact boundary of the unrestricted dominated weak-product property in this smooth two-body class. A mismatch of the cross coefficient at any interface point produces smooth concentrating pressures and dominated tangential tractions with zero weak limits but a nonzero elastic pairing. The construction extends an explicit planar-kernel defect and is repaired by pressure integrability above the sharp exponent $4/3$, critical uniform integrability, or equicontinuous traction ratios. It does not prove contact nonexistence in the mismatched case.
+
+For prescribed-pressure rate-and-state steps, we provide a self-contained logarithmic-Euler existence proof and specified extensions, mesh-independent sufficient small-step uniqueness without bulk viscosity, sharp constitutive monotonicity thresholds, and certified multiplicity in a continuum slab. Prior logarithmic-Euler formulations and unconditional frozen-flow existence are explicitly credited. The matched-interface contact theorem is incremental, with an unknown normal reaction; it does not settle general dissimilar-material contact or multidimensional continuous-time rate-and-state evolution.
+\end{abstract}
+\noindent\textbf{Keywords.} Coulomb contact; matched elastic interfaces; cross compliance; pseudomonotonicity; concentration; rate-and-state friction.
+\clearpage
+\begingroup\small\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+\newpage
+
+\section{Contact compactness and the principal results}\label{sec:scopeintro}
+The incremental Signorini--Coulomb problem couples linear elastic equilibrium to an unknown normal reaction and a friction threshold proportional to that reaction. The main analytical obstacle is a product of weakly converging boundary quantities. Ballard and Iurlano \cite{BI} isolate a special weak-product property of the elastic Neumann-to-Dirichlet map and use it to prove existence for arbitrary friction in two-dimensional isotropic elasticity. Their revised preprint's Remark 2.19 identifies the corresponding three-dimensional kernel question. That remark does not claim the three-dimensional property is true.
+
+We first give a smoothable concentration counterexample to that unrestricted property and identify sharp sufficient repairs. We then use the actual contact equations to obtain a positive theorem. Let $C_{nt}$ map tangential traction to relative normal displacement. Compactness of $C_{nt}:H^{-1/2}\to H^{1/2}$ makes the normal-reaction operator coercive and of type $(S)_+$ (Theorem \ref{thm:compactcontact}). This yields incremental contact existence with no smallness condition on the friction coefficient, together with strong stability and reaction-space convergence. The normal-reaction formulation and the underlying pseudomonotone existence theorem are due to the predecessors cited in that proof.
+
+For smooth bounded isotropic bodies with a closed common interface and remote clamps, the principal cross symbol is
+\[
+ i\left\{\frac1{2(\lambda_++\mu_+)}-\frac1{2(\lambda_-+\mu_-)}\right\}
+ \frac{\xi\cdot s}{|\xi|^2}.
+\]
+The established elastic boundary-symbol calculation \cite{TanLiu} and opposite interface orientations give this formula. Matching $\lambda_++\mu_+=\lambda_-+\mu_-$ cancels that symbol, leaving an order-$-2$ compact operator (Theorem \ref{thm:matchedexistence}). The matching condition is the classical half-space elastic-similarity cancellation \cite{ArgatovMishuris}; its extension here permits finite curved bodies whose lower-order coupling need not vanish. Theorem \ref{thm:classification} also proves the converse for the \emph{unrestricted weak-product property}, by localizing the concentration defect at any point of mismatch. This converse is not a necessary condition for contact existence.
+
+\paragraph{Contact-specific comparison and priority boundary.}
+Earlier three-dimensional continuum results impose a quantitative small-friction condition: see Jaru\v{s}ek \cite[Theorems 2.2 and 3.1, and Section 4]{Jarusek}, and the historical comparison in \cite[Section 1.2]{BI}. Classical elastically similar half-spaces instead have an exactly vanishing cross block; the material cancellation is not new. Ballard--Iurlano \cite[Theorems 2.12 and 2.13]{BI} obtain arbitrary-friction isotropic two-dimensional existence using a finer weak-product property, not a general three-dimensional compact-block hypothesis. Here the sufficient hypothesis is compactness of the endpoint cross block, realised for smooth anchored bounded bodies with matched interface coefficients; its lower-order part need not vanish. These comparisons concern unknown-pressure, unregularised continuum contact, not prescribed-pressure or regularised substitutes. The inspected sources do not establish an equivalent compact-but-nonzero bounded-body theorem. That bounded search does not establish priority over all older contact literature.
+
+\paragraph{Separate prescribed-pressure refinements.}
+Both parts address how the elastic response interacts with frictional feedback: the first controls an unknown reaction through cross compliance, while the second controls a state-eliminated constitutive law through a reduced energy and boundary impedance. This common analytical theme motivates their joint presentation; their hypotheses and conclusions are not combined into a general rate-and-state contact theorem.
+The second part concerns bilateral rate-and-state friction with prescribed bounded pressure, a different mathematical model. Logarithmic implicit-Euler state equations already appear in Pipping, Sander and Kornhuber \cite{PSK} and Gr\"aser, Kornhuber and Podlesny \cite{GKP}; arbitrary-step existence for an exact frozen-rate state flow is already in Pipping's thesis \cite{PippingThesis}. Section \ref{sec:priorart} compares the integrators, mechanical hypotheses, data and conclusions explicitly. We retain a self-contained existence proof with specified extensions. The more distinctive refinements are the mesh-independent pure-elastic uniqueness estimate, sharp \emph{constitutive} monotonicity thresholds, and exact discrete multiplicity embedded in a continuum slab. The sufficient mechanical uniqueness bound is not claimed sharp.
+
+\paragraph{Scope and evidence.}
+The actual contact theorem allows an unknown negative-order normal reaction but requires the stated smooth matched-interface architecture. It is not obtained by inserting that reaction into the prescribed-pressure rate-and-state theorem. Neither fixed-step existence nor discrete multiplicity resolves uniqueness or existence of the general continuous-time evolution. Pipping's continuous-time result \cite{Pipping2019} uses Kelvin--Voigt viscosity and covers ageing rather than classical slip; the homogeneous antiplane result below is a benchmark, not the general in-plane bimaterial problem \cite{RR,RLR}.
+
+The proof arguments and their functional-analytic dependencies are explicit. Exact algebraic checks and numerical illustrations support, but do not formalize, them. This revision incorporates the supplied AI-assisted review of v1.0; its new contact theorems have not received that review or independent specialist certification. The targeted literature audit establishes specific overlap, not exhaustive priority.
+
+\section{An explicit three-dimensional weak-product obstruction}\label{sec:counter}
+The boundary of a three-dimensional body is two-dimensional. Work first on $\R^2$, with all tractions supported in a fixed compact subset of $Q=(-1,1)^2$. Define
+\begin{equation}\label{eq:kernel}
+ P=(-\Delta)^{-1},\qquad
+ L_0=\partial_1P,\qquad
+ G(x)=-\frac{1}{2\pi}\log|x|,\qquad
+ K(x)=\frac{x_1}{|x|^2}=-2\pi\,\partial_1G(x).
+\end{equation}
+An additive constant in $P$ is immaterial. The bilinear form
+\begin{equation}\label{eq:Q}
+ Q_0(p,s)=\ip{p}{L_0s},\qquad Q_K(p,s)=\ip{p}{K*s}=-2\pi Q_0(p,s)
+\end{equation}
+is well defined for the compactly supported $H^{-1/2}$ data used here. Some details concerning this pairing are useful before giving the example.
+
+\begin{lemma}[Local pairing and positive energy]\label{lem:energy}
+On distributions supported in a fixed compact set $D\subset\R^2$, the homogeneous and inhomogeneous $H^{-1/2}$ norms are equivalent. The form $Q_0$ is continuous on this space squared. For a nonnegative finite measure $p$ in this space,
+\begin{equation}\label{eq:Riesz}
+ I_1(p):=\iint\frac{\dd p(x)\dd p(y)}{|x-y|}<\infty,
+ \qquad I_1(p)=C\norm{p}_{\Hdot}^2
+\end{equation}
+with a positive constant depending only on the Fourier convention. If $|s|\le C_0p$, then $s\in\Hdot$, and the kernel pairing is absolutely integrable with respect to $p\otimes|s|$.
+\end{lemma}
+\begin{proof}
+At frequencies $|\xi|\ge1$, the weights $|\xi|^{-1}$ and $(1+|\xi|^2)^{-1/2}$ are comparable. Choose $\chi\in C_c^\infty$ equal to one near $D$. For $|\xi|\le1$,
+\[
+ |\widehat f(\xi)|=|\ip{f}{\chi e^{-ix\cdot\xi}}|
+ \le C_D\norm{f}_{\Hh}.
+\]
+The weight $|\xi|^{-1}$ is integrable on the unit disk, proving the other norm bound. The Fourier multiplier of $L_0$ is $i\xi_1/|\xi|^2$. Weighted Cauchy--Schwarz therefore gives
+\[
+ |Q_0(p,s)|\le C\norm{p}_{\Hdot}\norm{s}_{\Hdot}.
+\]
+For nonnegative measures, the Gaussian representation of $|x-y|^{-1}$, Tonelli's theorem, and the Fourier transform of a Gaussian give \eqref{eq:Riesz}, first for mollified measures and then by approximation. The corresponding absolute energy of $s$ is bounded by $C_0^2I_1(p)$. This also proves membership in $\Hdot$ and absolute integrability of the mixed kernel, since $|K(x-y)|\le|x-y|^{-1}$.
+\end{proof}
+
+\begin{theorem}[Nonzero pairing with zero weak limits]\label{thm:bubble}
+Let $B_1$ be the unit disk, and set
+\begin{equation}\label{eq:bubble}
+ p=\ind_{B_1},\qquad s=x_1\ind_{B_1},\qquad
+ p_\varepsilon(x)=\varepsilon^{-3/2}p(x/\varepsilon),\qquad
+ s_\varepsilon(x)=\varepsilon^{-3/2}s(x/\varepsilon),
+ \quad 0<\varepsilon<\tfrac12.
+\end{equation}
+Then $p_\varepsilon\ge0$, $|s_\varepsilon|\le p_\varepsilon$, and both sequences converge weakly to zero in $H^{-1/2}(\R^2)$ and strongly to zero in total variation. Nevertheless,
+\begin{equation}\label{eq:defect}
+ Q_0(p_\varepsilon,s_\varepsilon)=\frac\pi8,
+ \qquad
+ Q_K(p_\varepsilon,s_\varepsilon)=-\frac{\pi^2}{4}
+ \quad\text{for every }\varepsilon.
+\end{equation}
+Consequently, the dominated weak-product property in the natural three-dimensional analogue of \cite[Remark 2.19]{BI} is false.
+\end{theorem}
+\begin{proof}
+The domination is immediate on $B_\varepsilon$. For either profile $f=p$ or $f=s$,
+\[
+ \widehat f_\varepsilon(\xi)=\varepsilon^{1/2}\widehat f(\varepsilon\xi),
+ \qquad \norm{f_\varepsilon}_{\Hdot}=\norm f_{\Hdot}.
+\]
+The profile norm is finite: at low frequency use boundedness of $\widehat f$, and at high frequency use $f\in L^2$ and $|\xi|^{-1}\le1$. Thus the inhomogeneous norms are uniformly bounded. On the other hand,
+\[
+ \norm{f_\varepsilon}_{L^1}=\varepsilon^{1/2}\norm f_{L^1}\longrightarrow0.
+\]
+Distributional convergence and density of smooth tests in $H^{1/2}$ imply weak $H^{-1/2}$ convergence to zero.
+
+Radial symmetry and $-\Delta Pp=1$ on $B_1$ give
+\[
+ L_0p(x)=-\frac{x_1}{2},\qquad x\in B_1.
+\]
+The kernel of $L_0$ is odd, so $L_0$ is skew-adjoint in the pairing. Hence
+\[
+ Q_0(p,s)=-\ip{L_0p}{s}
+ =\frac12\int_{B_1}x_1^2\dd x
+ =\frac12\left(\int_0^1r^3\dd r\right)
+             \left(\int_0^{2\pi}\cos^2\phi\dd\phi\right)=\frac\pi8.
+\]
+The two amplitudes in the scaled pairing contribute $\varepsilon^{-3}$, the two area elements contribute $\varepsilon^4$, and the degree $-1$ kernel contributes $\varepsilon^{-1}$. The product is one. This proves \eqref{eq:defect} and the asserted failure of passage to the product of the weak limits.
+\end{proof}
+
+\begin{corollary}[Smooth profiles have the same defect]\label{cor:smooth}
+The profiles in Theorem \ref{thm:bubble} may be chosen in $C_c^\infty(B_1)$. More precisely, let $p(x)=p(|x|)\ge0$ be a radial profile in $C_c^\infty(B_1)$, with total mass $M_0>0$, and let $s(x)=x_1p(x)$. Then
+\begin{equation}\label{eq:smoothmass}
+ Q_0(p,s)=\frac{M_0^2}{8\pi}.
+\end{equation}
+A smooth profile normalised to $M_0=\pi$ therefore gives exactly the same constants as \eqref{eq:defect}.
+\end{corollary}
+\begin{proof}
+Put $M(r)=\int_0^r t p(t)\dd t$. The radial Poisson equation gives
+$L_0p=-x_1M(r)/r^2$. Skew-adjointness and polar coordinates yield
+\[
+ Q_0(p,x_1p)=\pi\int_0^1r p(r)M(r)\dd r
+ =\frac\pi2M(1)^2=\frac{M_0^2}{8\pi}.
+\]
+The scaling and weak-convergence proof are unchanged. Thus neither discontinuous profiles nor atoms are responsible for the defect.
+\end{proof}
+
+\subsection{The kernel is the elastic cross compliance}
+For completeness, this is not merely an unrelated singular-integral example. Let the elastic half-space be $z>0$, with outward normal $-e_3$, shear modulus $\mu>0$, and Lam\'e coefficient $\lambda$ satisfying $3\lambda+2\mu>0$. Fourier transform along the boundary and first take $\xi=(k,0)$, $k>0$. A decaying solution of the Navier system has longitudinal components
+\[
+ u_1=(A+Bz)e^{-kz},\qquad u_3=(C+Dz)e^{-kz},
+\]
+where direct substitution gives
+\[
+ B=-\frac{k(\lambda+\mu)}{\lambda+3\mu}(A+iC),\qquad
+ D=\frac{k(\lambda+\mu)}{\lambda+3\mu}(C-iA).
+\]
+The Cartesian traction components $(t_1,t_3)=(-\sigma_{13},-\sigma_{33})$ and the boundary displacement $(A,C)$ are related by
+\begin{equation}\label{eq:DtN}
+ \begin{pmatrix}t_1\\t_3\end{pmatrix}
+ =\frac{2k\mu}{\lambda+3\mu}
+ \begin{pmatrix}\lambda+2\mu&-i\mu\\i\mu&\lambda+2\mu\end{pmatrix}
+ \begin{pmatrix}A\\C\end{pmatrix}.
+\end{equation}
+Its inverse is
+\begin{equation}\label{eq:NtD}
+ \begin{pmatrix}
+ \dfrac{\lambda+2\mu}{2k\mu(\lambda+\mu)}&\dfrac{i}{2k(\lambda+\mu)}\\[5pt]
+ -\dfrac{i}{2k(\lambda+\mu)}&\dfrac{\lambda+2\mu}{2k\mu(\lambda+\mu)}
+ \end{pmatrix}.
+\end{equation}
+Rotation in the boundary plane shows that tangential traction $(s,0)$, with zero normal traction, produces
+\begin{equation}\label{eq:elasticcross}
+ \widehat u_3(\xi)=-\frac{i\xi_1}{2(\lambda+\mu)|\xi|^2}\widehat s(\xi),
+ \qquad u_n=-u_3=\frac{L_0s}{2(\lambda+\mu)}.
+\end{equation}
+The separate compressive test pressure $t_n=-p_\varepsilon$ consequently gives
+\[
+ \ip{u_n(s_\varepsilon)}{-p_\varepsilon}
+ =-\frac{\pi}{16(\lambda+\mu)}\ne0.
+\]
+Here the pressure is a test in the cross pairing; it has not been asserted to be the normal reaction of the displacement generated by $s_\varepsilon$. The distinction will be important in Section \ref{sec:nonembedding}. The program verifies the Navier residuals, traction matrix, and inverse exactly.
+
+\section{Sharp compactness repairs and a failed embedding route}\label{sec:repairs}
+\subsection{The critical pressure exponent}
+\begin{theorem}[Integrability repair and endpoint sharpness]\label{thm:Lq}
+Suppose $p_n,s_n$ are supported in a common compact subset of $Q$, $p_n\ge0$, $|s_n|\le C_0p_n$, and
+$p_n\weak p$, $s_n\weak s$ in $H^{-1/2}$. If
+\[
+ \sup_n\norm{p_n}_{L^q}<\infty\quad\text{for some }q>4/3,
+\]
+then $Q_K(p_n,s_n)\to Q_K(p,s)$. The statement is false with only a uniform $L^{4/3}$ bound. At that endpoint it becomes true if $\{|p_n|^{4/3}\}_n$ is uniformly integrable.
+\end{theorem}
+\begin{proof}
+On a bounded two-dimensional set, $H^{1/2}$ embeds compactly in $L^{q'}$ for $q'<4$. By duality, $L^q$ embeds compactly in $H^{-1/2}$ when $q>4/3$ (reduce to a finite exponent if needed). Thus $p_n\to p$ strongly in $H^{-1/2}$. Lemma \ref{lem:energy} and weak convergence of $s_n$ prove convergence of the pairing.
+
+For the disk sequence,
+\begin{equation}\label{eq:Lqscaling}
+ \norm{p_\varepsilon}_{L^q}=\pi^{1/q}\varepsilon^{-3/2+2/q}.
+\end{equation}
+This is constant at $q=4/3$, whereas \eqref{eq:defect} persists. For $1\le q<4/3$ it even tends to zero.
+
+At the critical exponent, amplitude truncations $p_n\wedge M$ are uniformly bounded in $L^2$ for each fixed $M$, and hence relatively compact in $H^{-1/2}$. Uniform integrability makes
+$\norm{p_n-p_n\wedge M}_{L^{4/3}}$ uniformly small as $M\to\infty$. The continuous embedding $L^{4/3}\hookrightarrow H^{-1/2}$ then makes the full sequence relatively compact in $H^{-1/2}$. Its unique weak limit determines the strong limit, and the first argument applies.
+\end{proof}
+
+\subsection{A traction-direction repair}
+\begin{theorem}[Equicontinuous traction ratios]\label{thm:ratio}
+Under the support and weak-convergence assumptions of Theorem \ref{thm:Lq}, suppose instead that
+\[
+ s_n=a_n p_n,
+\]
+where the scalar functions $a_n$ are uniformly bounded and equicontinuous on the common compact support. Then $Q_K(p_n,s_n)\to Q_K(p,s)$. The analogous conclusion holds for a vector tangential traction with components $a_{n,j}p_n$ and the sum of the kernels $x_j/|x|^2$.
+\end{theorem}
+\begin{proof}
+The pressures have uniformly bounded mass and Riesz energy by Lemma \ref{lem:energy}; choose a compactly supported smooth test equal to one on the support to bound their mass. Weak $H^{-1/2}$ convergence therefore also gives weak convergence as measures. Along an arbitrary subsequence, Arzel\`a--Ascoli supplies a further subsequence with $a_n\to a$ uniformly. Thus $s=ap$ as measures.
+
+Oddness of $K$ gives the commutator identity
+\begin{equation}\label{eq:commutator}
+ Q_K(p,ap)=\frac12\iint K(x-y)\bigl(a(y)-a(x)\bigr)\dd p(x)\dd p(y).
+\end{equation}
+If $\omega$ is a common modulus of continuity, the part with $|x-y|<\eta$ is bounded in absolute value by
+$\tfrac12\omega(\eta) I_1(p)$. This estimate is uniform for $p_n$. Away from the diagonal, a continuous cutoff makes the kernel bounded and continuous, so weak convergence of the product measures implies convergence of that part. The error made by replacing $a_n$ with $a$ is at most
+$C\norm{a_n-a}_\infty I_1(p_n)$.
+Let $n\to\infty$ and then $\eta\downarrow0$. All extracted limits equal $Q_K(p,s)$, proving the full-sequence statement. Componentwise summation proves the vector case.
+\end{proof}
+
+\begin{remark}
+For a fixed constant ratio $a$, the self-pairing is zero by oddness. The bubble has ratio $a_\varepsilon(x)=x_1/\varepsilon$ on its support and violates equicontinuity at the concentration scale. Actual slip directions can vary abruptly near sticking regions, so the repair theorem is not an automatic property of Coulomb solutions.
+\end{remark}
+
+\subsection{Why this is not a Coulomb nonexistence proof}\label{sec:nonembedding}
+A counterexample to a lemma on arbitrary dominated tractions need not be a counterexample to the full nonlinear contact problem. The following additional result rules out the most immediate attempt to make that identification.
+
+\begin{proposition}[Vanishing positive bubbles do not destabilize fixed-data minimisers]\label{prop:nonembedding}
+Let $V$ be a Hilbert space, $A$ a continuous symmetric coercive bilinear form, $\ell\in V^*$, and $T:V\to H^{1/2}(\Gamma;\R^m)$ bounded. Let $w\in H^{1/2}(\Gamma;\R^m)$ be fixed and $f\ge0$ a constant. For a nonnegative $p\in H^{-1/2}(\Gamma)$ define
+\[
+ E_p(v)=\tfrac12 A(v,v)-\ell(v)+f\ip{p}{|Tv-w|}.
+\]
+Let $u_p$ be its unique minimiser. If $q_n\ge0$ and $q_n\weak0$ in $H^{-1/2}$, and $u_n$ minimizes $E_{p+q_n}$, then
+\begin{equation}\label{eq:nonembedding}
+ \frac12\norm{u_n-u_p}_A^2
+ \le f\ip{q_n}{|Tu_p-w|}\longrightarrow0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The norm map preserves $H^{1/2}$: its $L^2$ bound and its fractional seminorm bound follow from $||x|-|y||\le|x-y|$. Thus all pairings are defined. Positivity of $p$ makes the boundary functional convex and continuous; coercivity gives a unique minimiser. Strong convexity and minimality give
+\begin{align*}
+ \tfrac12\norm{u_n-u_p}_A^2
+ &\le E_p(u_n)-E_p(u_p)\\
+ &\le f\ip{q_n}{|Tu_p-w|}-f\ip{q_n}{|Tu_n-w|}\\
+ &\le f\ip{q_n}{|Tu_p-w|}.
+\end{align*}
+The last pairing tends to zero since its second entry is fixed in $H^{1/2}$.
+\end{proof}
+The proposition also allows fixed nonfrictional loads, including a fixed normal-traction functional, inside $\ell$. In particular, setting $p=0$ and $q_n=p_{\varepsilon_n}$ forces the frozen-friction minimisers to converge strongly. The arbitrary tangential fields in Theorem \ref{thm:bubble} therefore cannot simply be declared to be the tangential tractions of those fixed-data minimisers. No failure of the full Leray--Lions property or nonexistence of a Signorini--Coulomb solution is asserted here.
+
+\section{A compact-cross-compliance theorem for actual contact}\label{sec:actual}
+The preceding counterexample concerns arbitrary dominated fields. We now return to the contact equations. We use the normal-reaction formulation of Ballard and Iurlano \cite{BI}; the new sufficient hypothesis is compactness of a linear cross-compliance block. Unlike a pressure-integrability repair imposed on an unknown solution, this hypothesis can be checked directly from the elastic bodies.
+
+\subsection{Framework and the unknown normal reaction}
+Let $\Gamma$ be a compact smooth surface without boundary, let $X=H^{1/2}(\Gamma)$, and let $Y=H^{1/2}(\Gamma;T\Gamma)$. Here tangential fields may equivalently be represented as ambient vectors orthogonal to the normal. Let $V$ be a real Hilbert space, and let $A:V\to V^*$ be bounded, symmetric and coercive. Assume that the joint trace
+\[
+ T=(T_n,T_t):V\longrightarrow X\oplus Y
+\]
+is bounded, onto, and has a bounded right inverse. Write $K=\{t\in X^*:t\le0\}$, where the inequality is distributional. The data are $\ell\in V^*$, $g\in X$, $w\in Y$, and $f\in W^{1,\infty}(\Gamma)$ with $f\ge0$. The normal reaction $t\in K$ is an unknown; the compressive pressure is $-t$. The friction coefficient $f$ may be arbitrarily large, but is finite in the specified norm.
+
+For $t,\tau\in K$, let $u(t,\tau)$ minimize
+\begin{equation}\label{eq:frozencontact}
+ E_{t,\tau}(v)=\tfrac12\ip{Av}{v}-\ell(v)-\ip{\tau}{T_nv}
+                 +\ip{-ft}{|T_tv-w|}.
+\end{equation}
+Define
+\begin{equation}\label{eq:normalmap}
+ S(t,\tau)=T_nu(t,\tau),\qquad F(t)=S(t,t),\qquad
+ C_{nt}=T_nA^{-1}T_t^*:Y^*\longrightarrow X.
+\end{equation}
+The compactness of the trace $V\to L^2$ does not imply compactness of $C_{nt}$ between these endpoint spaces. The distinction is precisely where the three-dimensional obstruction enters.
+
+Absolute values of $H^{1/2}$ fields belong to $H^{1/2}$, with a bounded norm, and the composition is continuous. Consequently the last term in \eqref{eq:frozencontact} is finite, nonnegative, continuous and convex in $v$. All products with nonpositive distributions are dual pairings. Their measure interpretation uses the Sobolev representatives determined outside sets of zero capacity; no point values of an arbitrary Sobolev equivalence class are assigned to a singular measure.
+
+\begin{measurelemma}[Domination and weighted factorisation]\label{lem:endpointmeasure}
+A nonnegative distribution $p\in X^*$ is a finite positive Radon measure. If a tangential vector measure $\sigma$ satisfies $|\sigma|\le p$, then it defines an element of $Y^*$ and
+\[
+ |\ip{\sigma}{\eta}|\le\ip{p}{|\eta|}
+ \le C\|p\|_{X^*}\|\eta\|_Y.
+\]
+Pairings use quasi-continuous Sobolev representatives, unique outside sets of zero $H^{1/2}$ capacity. If $f\ge0$ is Lipschitz and $|s|\le fp$, there is such a $\sigma$ with $s=f\sigma$, set to zero on $\{f=0\}$.
+\end{measurelemma}
+\begin{proof}
+Positivity makes a distribution a Radon measure, finite on compact $\Gamma$. For smooth $\eta$, domination and the fractional-Sobolev norm estimate for the vector norm give the displayed bound. Hence the smooth pairing extends uniquely by density to $Y$. In particular smooth approximations are Cauchy in $L^1(p)$, since their $L^1(p)$ differences are bounded by their $H^{1/2}$ differences. The limit agrees with the quasi-continuous representative: positive finite-energy measures do not charge sets of zero capacity, as follows by testing their dual norm against nonnegative capacity cutoffs. This also identifies the dual pairing with the measure integral. Writing $s=h p$ by Radon--Nikodym, $|h|\le f$ holds $p$-almost everywhere. Define $\sigma=(h/f)p$ where $f>0$ and zero elsewhere. Its density has norm at most one, so the previous estimate applies and $s=f\sigma$. This is division of measure densities under domination, not an assertion that $1/f$ is a Sobolev multiplier.
+\end{proof}
+
+\begin{theorem}[Compact cross compliance implies contact existence]\label{thm:compactcontact}
+Under the preceding assumptions, suppose $C_{nt}$ is compact. Then there exists $t\in K$ satisfying
+\begin{equation}\label{eq:normalVI}
+ \ip{F(t)-g}{\widehat t-t}\ge0\qquad(\widehat t\in K).
+\end{equation}
+The displacement $u=u(t,t)$ and its tangential reaction $s\in Y^*$ satisfy the unregularized incremental Signorini--Coulomb problem:
+\begin{align}
+ Au&=\ell+T_n^*t+T_t^*s,\label{eq:actualequilibrium}\\
+ T_nu&\le g,\quad t\le0,\quad\ip{t}{T_nu-g}=0,\label{eq:actualnormal}\\
+ \ip{s}{\eta-(T_tu-w)}+\ip{-ft}{|\eta|-|T_tu-w|}&\ge0
+       \qquad(\eta\in Y).\label{eq:actualfriction}
+\end{align}
+In particular $|s|\le-ft$ as measures. No normal-compliance penalty, smoothing of the pressure, viscosity, or smallness assumption on $f$ is imposed. Existence, not uniqueness, is asserted.
+
+More generally, compactness of $C_{nt}M_f:Y^*\to X$ suffices, where $M_f$ denotes multiplication by $f$.
+\end{theorem}
+\begin{proof}
+\emph{Step 1: frozen problems and reactions.}
+The direct method and strong convexity give a unique minimiser of \eqref{eq:frozencontact}. For bounded $(t,\tau)$, comparison with zero gives a uniform bound on $\|u(t,\tau)\|_V$: indeed the nonnegative friction term can be discarded on the left, while $E_{t,\tau}(0)=\ip{-ft}{|w|}$ is bounded. The Euler variational inequality and surjectivity of $T$ imply the existence of a unique tangential distribution $s(t,\tau)$ such that
+\begin{equation}\label{eq:frozenreaction}
+ Au(t,\tau)=\ell+T_n^*\tau+T_t^*s(t,\tau),\qquad
+ |s(t,\tau)|\le-ft.
+\end{equation}
+To see both assertions without an unproved trace-subgradient rule, the Euler inequality first shows that $Au-\ell-T_n^*\tau$ annihilates $\ker T_t$. A bounded right inverse therefore defines $s\in Y^*$. Testing arbitrary tangent traces yields \eqref{eq:actualfriction}. Testing $\eta=(T_tu-w)\pm h$ gives
+\[
+ |\ip{s}{h}|\le\ip{-ft}{|h|}\le C\|f\|_{W^{1,\infty}}\|t\|_{X^*}\|h\|_Y.
+\]
+It follows by testing smooth fields that $s$ is a measure dominated by $-ft$; the displayed bound also controls its $Y^*$ norm. Taking $\eta=0$ and $\eta=2(T_tu-w)$ gives
+\begin{equation}\label{eq:frictionwork}
+ \ip{s}{T_tu-w}=\ip{ft}{|T_tu-w|}\le0.
+\end{equation}
+
+\emph{Step 2: a uniform normal-traction monotonicity estimate.}
+Keep $t$ fixed and let $u_i=u(t,\tau_i)$. Add the two minimizing inequalities to obtain
+\begin{equation}\label{eq:normalstrong}
+ \ip{A(u_1-u_2)}{u_1-u_2}
+ \le\ip{\tau_1-\tau_2}{T_n(u_1-u_2)}.
+\end{equation}
+For every $\phi\in X$ choose a lift $v_\phi\in V$ with $T_nv_\phi=\phi$, $T_tv_\phi=0$ and $\|v_\phi\|_V\le C\|\phi\|_X$. Subtraction of \eqref{eq:frozenreaction} and testing by this lift show that
+\[
+ \|\tau_1-\tau_2\|_{X^*}\le C\|u_1-u_2\|_V.
+\]
+Together with coercivity and \eqref{eq:normalstrong}, this proves
+\begin{equation}\label{eq:Snormalstrong}
+ \ip{S(t,\tau_1)-S(t,\tau_2)}{\tau_1-\tau_2}
+ \ge c\|\tau_1-\tau_2\|_{X^*}^2,
+\end{equation}
+where $c>0$ is independent of $t$. The same calculation gives Lipschitz dependence on $\tau$ for fixed $t$.
+
+\emph{Step 3: continuity and compactness in the other argument.}
+For fixed $\tau$ and bounded $t_1,t_2$, comparison of the two minimizing inequalities gives
+\[
+ c_A\|u(t_1,\tau)-u(t_2,\tau)\|_V^2
+ \le\ip{-f(t_1-t_2)}{|T_tu(t_2,\tau)-w|-|T_tu(t_1,\tau)-w|}
+ \le C_R\|t_1-t_2\|_{X^*}.
+\]
+The last estimate uses the sum of the two $Y$-norms, not an unsupported Lipschitz estimate for differences of absolute values in $H^{1/2}$. Thus $u$ is jointly strongly continuous, and $F$ is bounded and continuous.
+For fixed $\tau$, \eqref{eq:frozenreaction} gives the decomposition
+\begin{equation}\label{eq:compactdecomp}
+ S(t,\tau)=T_nA^{-1}\ell+T_nA^{-1}T_n^*\tau+C_{nt}s(t,\tau).
+\end{equation}
+The family $S(t,\tau)$ is relatively compact in $X$ when $t$ is bounded, by compactness of $C_{nt}$ and the bound on $s$.
+
+\emph{Step 4: type $(S)_+$ and pseudomonotonicity.}
+Suppose $t_j\weak t$ in $X^*$ and $\limsup\ip{F(t_j)}{t_j-t}\le0$. Estimate \eqref{eq:Snormalstrong} gives
+\[
+ c\|t_j-t\|_{X^*}^2
+ \le\ip{F(t_j)-S(t_j,t)}{t_j-t}.
+\]
+The second pairing on the right tends to zero because $S(t_j,t)$ is strongly precompact and $t_j-t$ is weakly null. Hence $t_j\to t$ strongly. This is the type-$(S)_+$ property on $K$. Strong continuity of $F$ then implies the defining pseudomonotonicity inequality, since in this situation $F(t_j)\to F(t)$ and all pairings converge.
+
+\emph{Step 5: coercivity.}
+Put $u=u(t,t)$. Pure-normal lifts in \eqref{eq:frozenreaction} imply
+\[
+ \|t\|_{X^*}\le C(\|u\|_V+\|\ell\|_{V^*}).
+\]
+Taking the inner product of \eqref{eq:frozenreaction} with $u$, and using \eqref{eq:frictionwork}, gives
+\[
+ \ip{F(t)}{t}\ge \ip{Au}{u}-\ell(u)-C\|t\|_{X^*}\|w\|_Y
+ \ge c_1\|t\|_{X^*}^2-C_1\|t\|_{X^*}-C_2.
+\]
+Here Young's inequality first absorbs half the coercive $u$-term, and the preceding lift bound then supplies the quadratic $t$-term. Thus $F$ is coercive. Br\'ezis's variational-inequality theorem \cite[Corollary 30]{Brezis}, in the formulation \cite[Theorem A.3]{BI}, supplies \eqref{eq:normalVI}.
+Testing that inequality by $0$, $2t$, and $t-\varphi$ for nonnegative smooth $\varphi$ proves \eqref{eq:actualnormal}. The frozen Euler inequality gives the other equations.
+
+For the weighted version, write $s=f\sigma$ as measures, with $\sigma=0$ on $\{f=0\}$ and $|\sigma|\le-t$. The same absolute-value estimate shows $\sigma\in Y^*$ with norm bounded by $C\|t\|_{X^*}$. Replace the last term of \eqref{eq:compactdecomp} by $C_{nt}M_f\sigma$. Every other step is unchanged.
+\end{proof}
+
+\subsection{Stability and reaction-space approximation}
+The following data perturbations keep $A,T,f$ fixed, and in the bounded-body realisation keep the elastic matching class fixed. They do not establish stability under material perturbations that destroy matching.
+The stronger $(S)_+$ conclusion gives more than abstract existence. It excludes loss of norm along convergent sequences of solutions within the compact-cross-compliance class.
+
+\begin{corollary}[Strong compactness of solutions under data perturbations]\label{cor:datastability}
+Keep $A,T,f$ fixed under Theorem \ref{thm:compactcontact}, and let $\ell_j\to\ell$ in $V^*$, $g_j\to g$ in $X$, and $w_j\to w$ in $Y$. Every sequence of contact solutions has a subsequence whose normal reactions converge strongly in $X^*$ and whose displacements converge strongly in $V$ to a solution for the limiting data. For fixed data the solution set is compact in these spaces. A uniqueness assumption would make the full sequence converge, but uniqueness is not part of the theorem.
+\end{corollary}
+\begin{proof}
+The coercivity estimate above is uniform on bounded data sets. Testing the normal inequality by zero therefore bounds all reactions and frozen minimisers. For a fixed bound on $\|t\|_{X^*}$, the minimizing functional changes under $w_j\to w$ by at most
+\[
+ \ip{-ft}{|w_j-w|}\le C\|t\|_{X^*}\|w_j-w\|_Y
+\]
+uniformly in $v$. Strong convexity and the corresponding load estimate imply uniform convergence $u_j(t,t)\to u(t,t)$ in $V$ on bounded reaction sets. In particular $F_j-F\to0$ uniformly there.
+Extract $t_j\weak t$. Test the $j$th normal inequality by $t$ to obtain
+\[
+ \limsup_j\ip{F(t_j)}{t_j-t}\le0,
+\]
+since $g_j\to g$ and $F_j-F\to0$ uniformly on the bounded set. The $(S)_+$ property yields strong reaction convergence. Continuity of the frozen minimisers supplies strong displacement convergence and allows passage to all inequalities. Closedness and the same argument for fixed data prove compactness of the solution set.
+\end{proof}
+
+\begin{corollary}[Convergent reaction-space approximations]\label{cor:reactionGalerkin}
+Let $K_j\subset K$ be closed convex cones in finite-dimensional subspaces of $X^*$. Suppose that for every $t\in K$ there are $t_j\in K_j$ with $t_j\to t$ strongly. Then the finite-dimensional inequalities
+\[
+ t_j\in K_j,\qquad\ip{F(t_j)-g}{\widehat t_j-t_j}\ge0
+ \quad(\widehat t_j\in K_j)
+\]
+have solutions. Every sequence of such solutions has a strongly convergent subsequence in $X^*$; the corresponding exact frozen displacements converge strongly in $V$, and the limit solves the full contact problem.
+\end{corollary}
+\begin{proof}
+In finite dimension a continuous coercive map has a solution of the variational inequality on a closed convex cone: apply Brouwer to the metric projection on its intersection with a sufficiently large ball; coercivity excludes a fixed point on the artificial spherical boundary. Testing by zero supplies a uniform bound. Extract a weak limit $t\in K$ and use a strong recovery sequence for $t$ as test functions. This gives the $(S)_+$ limsup condition and hence strong convergence. Recovery sequences for arbitrary $\widehat t\in K$ then give the limiting inequality. Strong continuity of $u(t,t)$ completes the proof.
+The approximation hypothesis is nonvacuous. On a compact smooth $\Gamma$, regularisation by its positive heat kernel approximates positive $H^{-1/2}$ distributions strongly by positive smooth functions. Nonnegative partition-of-unity approximations then approximate those functions. A diagonal choice and cones generated by successively added nonnegative smooth functions give nested finite-dimensional cones with the stated recovery property.
+\end{proof}
+These are reaction-space approximations with an \emph{exact} elastic frozen response. No conclusion for an arbitrary finite-element quadrature or nonlinear solver follows without its own consistency analysis.
+
+\section{Matched elastic interfaces and the sharp operator boundary}\label{sec:matched}
+We next verify the abstract hypothesis for a class of genuinely three-dimensional elastic contact problems, including curved interfaces. The elastic-similarity cancellation in a half-space is classical; see, for example, \cite{ArgatovMishuris}. Here only the leading boundary symbol cancels. Lower-order coupling may remain, and compactness rather than exact decoupling supplies the contact theorem.
+
+\subsection{Smooth bounded bodies}
+Let $\Omega_+,\Omega_-\subset\R^3$ be smooth bounded connected domains, with disjoint interiors, sharing a compact smooth closed boundary component $\Gamma$. Each body has a nonempty union $\Gamma_{D,\pm}$ of its other boundary components, on which displacement is zero; for definiteness all remaining components are clamped. Thus the clamp and contact sets are separated by a positive distance, and there are no contact-edge or mixed-boundary singularities on $\Gamma$. Let
+\[
+ \lambda_\pm,\mu_\pm\in C^\infty(\overline\Omega_\pm),\qquad
+ \mu_\pm>0,\qquad 3\lambda_\pm+2\mu_\pm>0.
+\]
+On the compact closures these inequalities give uniform coercivity. Take $V=V_+\oplus V_-$, with $V_\pm=\{v\in H^1(\Omega_\pm;\R^3):v=0\text{ on }\Gamma_{D,\pm}\}$, and
+\begin{equation}\label{eq:elasticpair}
+ \ip{Au}{v}=\sum_{\pm}\int_{\Omega_\pm}
+  \left(2\mu_\pm\varepsilon(u_\pm):\varepsilon(v_\pm)
+             +\lambda_\pm\operatorname{div}u_\pm\operatorname{div}v_\pm\right)\dd x.
+\end{equation}
+Let $n$ be the outward normal of $\Omega_+$ on $\Gamma$, so the other outward normal is $-n$. The relative trace is $T u=u_+|_\Gamma-u_-|_\Gamma$, with $T_nu=Tu\cdot n$ and $T_tu=Tu-(T_nu)n$. Trace extension and Korn's inequality verify all the abstract hypotheses on $A,T,V$. Loads $\ell\in V^*$ are arbitrary. The unilateral condition $T_nu\le g$ is a small-displacement condition in this fixed reference geometry.
+
+Define the boundary quantities
+\begin{equation}\label{eq:chi}
+ \chi_\pm=\frac1{2(\lambda_\pm+\mu_\pm)},\qquad
+ c=\chi_+-\chi_-.
+\end{equation}
+The equality $c=0$ does not require $\lambda_+=\lambda_-$ or $\mu_+=\mu_-$.
+
+\begin{lemma}[Principal cross-compliance symbol]\label{lem:principalcross}
+For the preceding bodies, $C_{nt}$ is a classical pseudodifferential operator of order at most $-1$ on $\Gamma$. In an orthonormal tangent frame its homogeneous principal symbol is
+\begin{equation}\label{eq:principalsymbol}
+ \sigma_{-1}(C_{nt})(x,\xi)s
+       =i c(x)\frac{\xi\cdot s}{|\xi|^2},\qquad\xi\ne0.
+\end{equation}
+In intrinsic notation replace the numerator by $\xi^\sharp\cdot s$ and the denominator by $|\xi|_g^2$. Consequently $c=0$ on $\Gamma$ implies $C_{nt}\in\Psi^{-2}$, and hence compactness from $Y^*$ to $X$.
+\end{lemma}
+\begin{proof}
+We use the established smooth-boundary calculus for the elastic Dirichlet-to-Neumann map, specifically the order-one assertion and principal symbol in \cite[Theorem 1.1]{TanLiu}. For the supporting calculus, see \cite[Section 3, properties (Alg), (Supp), (Sob), (Symb), and the parametrix construction, pp. 7--9]{Dyatlov}. For clarity, its use here involves three operations. Prescribe a displacement on $\Gamma$ and zero displacement on every other boundary component. The resulting restricted Dirichlet-to-Neumann operator $D_\pm$ on $\Gamma$ has the same local principal symbol as the full boundary operator: kernels joining disjoint boundary components are smooth. It is an isomorphism $H^{1/2}\to H^{-1/2}$ by the coercive mixed elastic problem. Its inverse is therefore in $\Psi^{-1}$: an elliptic parametrix has order $-1$, and the difference from the true inverse is smoothing by elliptic regularity. Finally, multiply the inverse by the smooth normal and tangential projections.
+
+To compute its cross symbol, freeze the coefficients and straighten the surface at one point. The longitudinal $2\times2$ block is exactly \eqref{eq:DtN}--\eqref{eq:NtD}; the transverse mode decouples. In outward-normal coordinates the normal displacement caused by tangent traction has symbol $i\chi_\pm\xi\cdot s/|\xi|^2$, as in \eqref{eq:elasticcross}. A relative tangent traction $s$ acts on the plus body and $-s$ on the minus body. Since $T_nu=u_+\cdot n+u_-\cdot(-n)$, the two outward-normal outputs subtract their cross coefficients, giving \eqref{eq:principalsymbol}. This also fixes the sign convention independently of a coordinate name for $u_3$.
+
+Derivatives of coefficients, curvature and the remote boundary conditions contribute only lower-order terms. A classical order-$-1$ operator with zero homogeneous principal symbol belongs to $\Psi^{-2}$. Such an operator maps $H^{-1/2}$ boundedly into $H^{3/2}$, whose embedding into $H^{1/2}$ on a compact surface is compact.
+\end{proof}
+
+\begin{theorem}[Arbitrary-friction incremental existence on matched interfaces]\label{thm:matchedexistence}
+For the smooth anchored bodies just described, assume
+\begin{equation}\label{eq:matching}
+ \lambda_+(x)+\mu_+(x)=\lambda_-(x)+\mu_-(x)
+       \quad\text{for every }x\in\Gamma.
+\end{equation}
+For every $\ell\in V^*$, $g\in H^{1/2}(\Gamma)$, $w\in H^{1/2}(\Gamma;T\Gamma)$ and nonnegative $f\in W^{1,\infty}(\Gamma)$, the actual three-dimensional incremental Signorini--Coulomb problem \eqref{eq:actualequilibrium}--\eqref{eq:actualfriction} has a solution. Corollaries \ref{cor:datastability} and \ref{cor:reactionGalerkin} apply.
+
+If $f$ is smooth, the weaker condition $f(x)c(x)=0$ on $\Gamma$ suffices: matching is needed only where the friction coefficient is nonzero.
+\end{theorem}
+\begin{proof}
+Under \eqref{eq:matching}, Lemma \ref{lem:principalcross} makes $C_{nt}$ compact, so Theorem \ref{thm:compactcontact} applies. For smooth $f$ with $fc=0$, the principal symbol of $C_{nt}M_f$ is zero. Thus $C_{nt}M_f\in\Psi^{-2}$ and the weighted version applies. No bound on the amplitude of $f$ is used.
+\end{proof}
+
+\paragraph{A concrete non-identical pair.}
+Two concentric spherical shells, one between radii $1$ and $2$, the other between $2$ and $3$, with their boundaries at radii $1$ and $3$ clamped, satisfy the geometry hypotheses. In common stress units, choose $(\lambda_+,\mu_+)=(2,1)$ and $(\lambda_-,\mu_-)=(1,2)$. Both tensors are strictly positive on symmetric strains, and both have $\lambda+\mu=3$, although their shear and bulk moduli differ. Any smooth perturbation of these remote shapes preserving the closed smooth shared interface is allowed; no reflection symmetry is needed. Spatially varying coefficients are also allowed when the boundary identity \eqref{eq:matching} is maintained.
+
+\subsection{Necessity for the unrestricted pairing, not for existence}
+\begin{theorem}[Exact boundary of the dominated weak-product property]\label{thm:classification}
+In the smooth two-body class above, the following property holds if and only if $c=0$ everywhere on $\Gamma$:
+\begin{gather*}
+ p_j\ge0,\quad |s_j|\le p_j,\qquad
+ p_j\weak p\text{ in }X^*,\quad s_j\weak s\text{ in }Y^*\\
+ \Longrightarrow\quad
+ \ip{p_j}{C_{nt}s_j}\longrightarrow\ip{p}{C_{nt}s}.
+\end{gather*}
+If $c(x_0)\ne0$, there are smooth supported pressures and tangent tractions, concentrated near $x_0$, with zero weak limits and vanishing total variation, such that
+\begin{equation}\label{eq:curveddefect}
+ \lim_{\varepsilon\downarrow0}\ip{p_\varepsilon}{C_{nt}s_\varepsilon}
+                 =c(x_0)\frac\pi8\ne0.
+\end{equation}
+The same local conclusion holds for a smooth body against a rigid obstacle, with $c=\chi_+>0$. It is a statement about its actual \emph{linear elastic cross operator}; the fields are not asserted to solve its nonlinear contact conditions.
+\end{theorem}
+\begin{proof}
+If $c=0$, compactness of $C_{nt}$ gives $C_{nt}s_j\to C_{nt}s$ strongly in $X$; boundedness and weak convergence of $p_j$ give the result.
+
+Suppose $c(x_0)\ne0$. Choose geodesic surface coordinates centred at $x_0$, whose metric is Euclidean at the origin, and a smooth local orthonormal tangent frame. Take a smooth radial profile $p$ supported in $B_1$ with mass $\pi$, as in Corollary \ref{cor:smooth}, and put $s=x_1p$ in the first tangent direction. In these coordinates choose the surface densities so that their density-times-area-Jacobian equals $\varepsilon^{-3/2}p(x/\varepsilon)$ and $\varepsilon^{-3/2}s(x/\varepsilon)$, respectively. The common Jacobian factor preserves positivity and $|s_\varepsilon|\le p_\varepsilon$. Boundedness and weak convergence in the surface spaces follow from coordinate invariance and the estimates of Theorem \ref{thm:bubble}. Their total variations are $O(\varepsilon^{1/2})$.
+
+Here is the local operator limit in more detail. Localize $C_{nt}$ with smooth cutoffs equal to one near $x_0$, and split off its homogeneous order-$-1$ kernel. At the origin that kernel, acting on the first tangent component, is $c(x_0)\partial_1G(x-y)$. The difference between its coefficients and the coefficients frozen at the origin is bounded, on the shrinking support, by
+\[
+ \omega(C\varepsilon)|x-y|^{-1},\qquad \omega(r)\longrightarrow0.
+\]
+This follows either from the inverse Fourier transform of the smooth degree-$-1$ principal symbol on the unit cotangent circle, or directly by freezing its smooth angular kernel. The chart, frame and Jacobian factors have the same estimate. Its contribution to the pairing is bounded by $C\omega(C\varepsilon)I_1(p_\varepsilon)=o(1)$, using domination and the bounded Riesz energy. The remainder has order at most $-2$, and is compact between the endpoint spaces, so its pairing with the weakly null fields also tends to zero. Low-frequency cutoff changes are smooth and are covered by this remainder. The surviving constant-coefficient pairing is $c(x_0)Q_0(p,s)=c(x_0)\pi/8$. The rigid-obstacle case uses the one-body symbol from \eqref{eq:elasticcross} with exactly the same argument.
+\end{proof}
+\begin{remark}[Logical boundary]
+Theorem \ref{thm:classification} is an if-and-only-if statement about an unrestricted dominated-field compactness property. Theorem \ref{thm:matchedexistence} gives a sufficient condition for actual contact existence. Neither says that matching is necessary for contact existence. Proposition \ref{prop:nonembedding} still blocks the simple positive-bubble construction among fixed-data frozen minimisers. General mismatched three-dimensional contact remains outside the existence theorem.
+\end{remark}
+
+\subsection{Finite slabs: cancellation without exact decoupling}\label{sec:slabcompliance}
+The following exact calculation both checks the reflection and shows that Theorem \ref{thm:matchedexistence} is not restricted to operators whose normal and tangential blocks decouple identically. It also gives an elementary realisation of compact cross compliance without relying on curved-boundary symbol calculus.
+
+Consider a homogeneous elastic layer $0<z<H$, clamped at $H$, periodic in its two tangent directions. For a nonzero tangent wave number $k$, rotate so its vector is $(k,0)$. Write $u_1=iX$, $u_3=Z$, and $(t_1,t_3)=(iT_1,T_3)$. This unitary change makes the longitudinal matrices real. Set
+\[
+ d=\frac{\lambda+\mu}{\lambda+3\mu},\quad
+ N_-=\begin{pmatrix}-d&-d\\ d&d\end{pmatrix},\quad
+ N_+=\begin{pmatrix}d&-d\\ d&-d\end{pmatrix},\qquad N_-^2=N_+^2=0,
+\]
+and
+\[
+ H_-=\frac{2k\mu}{\lambda+3\mu}
+   \begin{pmatrix}\lambda+2\mu&-\mu\\-\mu&\lambda+2\mu\end{pmatrix},\qquad
+ H_+=-\frac{2k\mu}{\lambda+3\mu}
+   \begin{pmatrix}\lambda+2\mu&\mu\\\mu&\lambda+2\mu\end{pmatrix}.
+\]
+The modes $e^{-kz}(I+kzN_-)a$ and $e^{kz}(I+kzN_+)b$ solve the longitudinal Navier equations; their tractions at zero are $H_-a$ and $H_+b$. With $q=kH$ put
+\begin{equation}\label{eq:slabexact}
+ R=e^{-2q}(I-qN_+)(I+qN_-),\qquad
+ C_H^{\rm real}(k)=(I-R)(H_--H_+R)^{-1}.
+\end{equation}
+Indeed, the top clamp gives $b=-Ra$, and eliminating $a$ gives \eqref{eq:slabexact}. Coercivity ensures the inverse exists. Since $R=O((1+q)^2e^{-2q})$,
+\begin{equation}\label{eq:slabasymp}
+ C_H^{\rm real}(k)=H_-^{-1}
+             +O\!\left(k^{-1}(1+kH)^2e^{-2kH}\right)
+             \quad(k\to\infty).
+\end{equation}
+The off-diagonal entry of $H_-^{-1}$ is $\chi/k$. For two oppositely oriented layers the relative cross entry is the difference of their one-layer entries. Thus matching $\chi_+=\chi_-$ leaves exponentially decaying Fourier coefficients, a smoothing cross operator. The zero mode has no normal--tangent coupling. The abstract contact theorem therefore also applies on this periodic interface, for arbitrary layer thicknesses.
+
+The remaining low-frequency coupling is generally nonzero. Direct expansion of the longitudinal equations gives
+\begin{equation}\label{eq:slablow}
+ (C_H^{\rm real}(k))_{21}
+    =\frac{(\mu-\lambda)H^2}{2\mu(\lambda+2\mu)}\,k+O(k^3).
+\end{equation}
+For completeness, under tangent traction $T_1$ and zero $T_3$, write $X=X_0+O(k^2)$, $Z=kZ_1+O(k^3)$. The equations and boundary conditions give
+\[
+ X_0(z)=\frac{T_1}{\mu}(H-z),\qquad
+ Z_1''=-\frac{(\lambda+\mu)T_1}{\mu(\lambda+2\mu)},\qquad
+ Z_1'(0)=\frac{\lambda H T_1}{\mu(\lambda+2\mu)},\qquad Z_1(H)=0.
+\]
+Integration gives \eqref{eq:slablow}. Analytic dependence of this finite-interval coercive boundary problem near $k=0$, and reflection in the tangent coordinate, justify the expansion and its odd powers. For unit layer thicknesses and the matched pair $(2,1),(1,2)$, the two coefficients are $-1/8$ and $1/20$; their difference is $-7/40$. It is therefore nonzero for sufficiently small positive $k$, despite exact cancellation of the principal high-frequency coefficient. Taking a sufficiently large tangent period realizes such a Fourier mode. The accompanying exact algebra checks the modes, tractions, reflection and this coefficient; numerical multipliers illustrate, but do not establish, the high-frequency conclusion.
+
+\section{Precise comparison of the time-discrete results}\label{sec:priorart}
+This section separates prior formulations, proved coupled conclusions, and the refinements established below. The existence result in Section \ref{sec:existence} is presented as a self-contained proof with specified extensions, not as the first unconditional time-step existence result.
+
+Gr\"aser, Kornhuber and Podlesny \cite{GKP} already use logarithmic state and implicit Euler. Put $\alpha_G=\log\theta$ in their notation and write
+\begin{equation}\label{eq:GKPshift}
+ \alpha=\alpha_G+\log(V_*/L),\qquad
+ z=z_G+\log(V_*/L).
+\end{equation}
+Their state energies (20), (21), and the Euler inequality (43) give, pointwise,
+\[
+ \alpha_G-z_G=h(e^{-\alpha_G}-r/L),\qquad
+ \alpha_G-z_G=-\frac{hr}{L}\bigl(\alpha_G+\log(r/L)\bigr),
+\]
+respectively. Substitution of \eqref{eq:GKPshift} gives exactly our ageing and slip logarithmic-Euler equations \eqref{eq:SA}--\eqref{eq:SS}. Thus neither the state coordinate nor that state integrator is new. The equality is also checked symbolically in the revised evidence.
+
+\begingroup\small
+\setlength{\tabcolsep}{4pt}
+\begin{longtable}{>{\raggedright\arraybackslash}p{.20\linewidth}>{\raggedright\arraybackslash}p{.35\linewidth}>{\raggedright\arraybackslash}p{.39\linewidth}}
+\caption{Theorem-level comparison. All listed rate-and-state models prescribe the normal-pressure factor; none is the unknown-reaction contact theorem of Section \ref{sec:actual}.}\label{tab:priorart}\\
+\toprule
+Source and result & Model, integrator and data & Proved conclusion and comparison\\\midrule\endfirsthead
+\toprule Source and result & Model, integrator and data & Proved conclusion and comparison\\\midrule\endhead
+\bottomrule\endfoot
+Pipping--Sander--Kornhuber \cite{PSK}, Propositions 4.3--4.4; Theorem 5.14
+& Elastic body on rigid foundation; bilateral contact; Newmark with $2M/h+(h/2)E$; truncated friction; logarithmic backward Euler. Coupled theorem assumes old logarithmic state and its negative exponential in $L^2$.
+& Unique separate rate and state problems. Coupled ageing-law existence with $\|b/a\|_\infty<2$. The cited coupled theorem is not a slip-law theorem. Our reduced primitive treats both laws, both regularisations, $L^2$ old state, and arbitrary $b/a$.\\[5pt]
+Pipping thesis \cite{PippingThesis}, Proposition 3.6; Corollary 3.8
+& Bilateral rigid-foundation problem; positive inertial/elastic step weights and optional viscosity; prescribed pressure; truncated or asinh friction, with optional cohesion; \emph{exact frozen-rate state flow}, possibly at an old/new vector average; old logarithmic state in $L^2$.
+& Corollary 3.8 gives existence for both laws, every step and pure elasticity. Proposition 3.6 gives small-step uniqueness in the viscous, state-rate-Lipschitz setting covering ageing. We credit that existence result. Our pure-elastic uniqueness estimate and log-Euler constitutive thresholds concern specified different conclusions.\\[5pt]
+Gr\"aser--Kornhuber--Podlesny \cite{GKP}, Propositions 1--2; Problem 3 and Section 3.3
+& Multiple viscoelastic bodies; contact geometry frozen from the preceding displacement; no fault opening; prescribed normal stress; truncated friction; logarithmic Euler; old state in $L^2$. Combined mechanical form is $2M/h+A_{\rm visc}+(h/2)B_{\rm el}$.
+& Propositions 1--2 prove unique subproblems when the contact map and coercive mechanical form exist. Problem 3 defines the coupling. Section 3.3 attributes related rigid-foundation coupled results to the thesis and \cite{PSK}; the integrator/statement mismatch is addressed below. Our scalar radial elimination does not assert coverage of arbitrary evolving contact maps.\\[5pt]
+Pipping et al. \cite{PKRO}, Section 2.3
+& Viscoelastic rigid-foundation model; asinh ageing friction; exact constant-rate state flow using a midpoint velocity; finite elements and adaptive Newmark stepping.
+& Explains the loss of convexity after state elimination and chooses a fixed-point solver. Nonconvexity after elimination is not a discovery of this manuscript. Our current-rate radial primitive gives a variational existence proof, not a proof that their midpoint-eliminated vector problem has the same potential.\\[5pt]
+Present Theorem \ref{thm:existence}, Proposition \ref{prop:kappa}, and subsequent theorems
+& Fixed bilateral trace; prescribed bounded pressure; coercive mechanical step, including pure-elastic backward Euler/Newmark; logarithmic Euler at the current scalar speed; either regularisation; old state in $L^2$. Slip uniqueness additionally uses an upper-state bound.
+& Self-contained coupled existence and extensions; mesh-independent sufficient small-step uniqueness; exact constitutive monotonicity thresholds; certified multiplicity in an elastic slab. Global-minimiser approximation and the homogeneous characteristic benchmark are supporting results.\\
+\end{longtable}
+\endgroup
+
+\paragraph{Reconciliation of the 2024 citation chain.}
+The two cited predecessors do not, by themselves, establish the exact coupled logarithmic-Euler conclusion for both laws. In \cite{GKP}, reference [30] is the 2014 thesis and [33] is \cite{PSK}. The thesis Corollary 3.8 uses an exact flow; \cite[Theorem 5.14]{PSK} treats ageing under the restrictions just listed, although the sentence in \cite[Section 3.3]{GKP} cites it in connection with Ruina's law. This is a mismatch between the attributed statement and those particular supporting results. It does not refute the 2024 model, its separate-subproblem propositions, or its numerical work. The proof below supplies the coupled conclusion for its own fixed-trace, current-speed formulation; it does not fill every geometric hypothesis of the multibody model.
+
+\paragraph{What is retained as an advance.}
+The strongest results are the actual matched-interface contact existence theorem and the cross-operator classification. Among the prescribed-pressure results, the distinctive refinements are the pure-elastic feedback estimate, the exact constitutive thresholds, and continuum realisation of multiplicity. Existence is retained for completeness and precise hypothesis control. We make no claim of first use of logarithmic Euler, first recognition of elimination-induced nonconvexity, or first arbitrary-step frozen-rate-flow existence.
+
+\section{The prescribed-pressure rate-and-state model}\label{sec:model}
+Let $\Omega$ be a bounded Lipschitz domain in dimension two or three and $\Gamma$ a contact part of its boundary, of finite surface measure. A real Hilbert space $\V\subset H^1(\Omega;\R^d)$ incorporates homogeneous essential conditions and bilateral normal constraints. Assume that the tangential trace
+\[
+ \tr:\V\longrightarrow L^2(\Gamma;\R^m)
+\]
+is bounded and compact. A product of two such spaces with the tangential jump trace is also allowed. The hypotheses below are abstract, so an admissible coercive antiplane space can be used as well.
+
+Fix a time step $h>0$ and a continuous symmetric bilinear form $\A_h$ satisfying
+\begin{equation}\label{eq:coercive}
+ \A_h(v,v)\ge c_h\norm v_\V^2,\qquad c_h>0.
+\end{equation}
+Let $\ell\in\V^*$ and let $p\in L^\infty(\Gamma)$ be a \emph{given}, nonnegative pressure. The state datum is $z\in L^2(\Gamma)$. For clarity take constants $a,L,V_*>0$, $b\ge0$, and $\mu_*\in\R$. The coefficients are finite but no upper bound is imposed on $b/a$.
+
+Write $r\ge0$ for slip speed and $\alpha=\log(V_*\theta/L)$ for dimensionless logarithmic state. The continuous state laws used to define the step are
+\begin{align}
+ \dot\alpha&=G_A(r,\alpha):=\frac{V_*e^{-\alpha}-r}{L},\label{eq:ageODE}\\
+ \dot\alpha&=G_S(r,\alpha):=-\frac rL\left(\alpha+\log\frac r{V_*}\right),\label{eq:slipODE}
+\end{align}
+where $r\log(r/V_*)$ is extended by zero at $r=0$. The two nonnegative friction regularisations are
+\begin{align}
+ \mu_t(r,\alpha)&=\pos{g(r,\alpha)},\qquad
+ g(r,\alpha)=\mu_*+a\log(r/V_*)+b\alpha,\label{eq:trunc}\\
+ \mu_r(r,\alpha)&=a\asinh\!\left(\tfrac12 e^{g(r,\alpha)/a}\right),\label{eq:asinh}
+\end{align}
+with both coefficients defined as zero at $r=0$. These are the truncated and regularized forms used in \cite{PippingThesis,Pipping2019}. Neither formula is the unmodified logarithmic law at arbitrarily small speed.
+
+\begin{lemma}[Fixed-state friction estimates]\label{lem:friction}
+For each fixed state, both friction coefficients are nonnegative, continuous, and nondecreasing in $r$. Uniformly in $r\ge0$,
+\begin{equation}\label{eq:muLip}
+ |\mu(r,\alpha)-\mu(r,\beta)|\le b|\alpha-\beta|.
+\end{equation}
+Moreover,
+\begin{equation}\label{eq:asinhbounds}
+ 0\le\mu_r(r,\alpha)\le\mu_t(r,\alpha)+a\log2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The positive-part map is nondecreasing and one-Lipschitz. For the inverse-hyperbolic-sine form, differentiation with respect to $g$ gives
+\[
+ \sigma(g):=\frac{e^{g/a}/2}{\sqrt{1+e^{2g/a}/4}}\in(0,1).
+\]
+These observations prove monotonicity and \eqref{eq:muLip}. If $g\le0$, the inverse-hyperbolic-sine expression is at most $a\asinh(1/2)<a\log2$. If $g\ge0$, writing the inverse hyperbolic sine as a logarithm gives a difference from $g$ of at most $a\log((1+\sqrt5)/2)<a\log2$.
+\end{proof}
+
+\section{State elimination and unconditional implicit steps}\label{sec:existence}
+Introduce the dimensionless quantities
+\begin{equation}\label{eq:qdelta}
+ \delta=\frac{hV_*}{L},\qquad q=\frac{hr}{L}.
+\end{equation}
+Backward Euler in $\alpha$ gives the ageing and slip state maps
+\begin{align}
+ S_A-\delta e^{-S_A}&=z-q,\label{eq:SA}\\
+ S_S(r,z)&=\frac{z-q\log(r/V_*)}{1+q},\qquad S_S(0,z)=z.\label{eq:SS}
+\end{align}
+
+\begin{lemma}[State-map bounds and continuity]\label{lem:state}
+Equation \eqref{eq:SA} has exactly one real solution for every $r\ge0$ and $z\in\R$. Both state maps are jointly continuous and satisfy
+\begin{align}
+ S_A&\ge z-q,& (S_A)^+&\le z^++\delta,& |S_A|&\le|z|+q+\delta,\label{eq:Abounds}\\
+ (S_S)^+&\le z^++\delta/e,&
+ |S_S|&\le |z|+\delta/e+r/V_* .&&\label{eq:Sbounds}
+\end{align}
+For either map, $0\le\partial_zS\le1$. The induced maps $(r,z)\mapsto S(r,z)$ are continuous from $L^2_+(\Gamma)\times L^2(\Gamma)$ to $L^2(\Gamma)$. In addition, $e^{-S_A}\in L^2$ whenever $r,z\in L^2$.
+\end{lemma}
+\begin{proof}
+The function $s\mapsto s-\delta e^{-s}$ is strictly increasing from $-\infty$ to $+\infty$. Its equation implies $S_A\ge z-q$. If $S_A>0$, then $S_A=z-q+\delta e^{-S_A}\le z^++\delta$. These give \eqref{eq:Abounds}, and implicit differentiation gives
+\begin{equation}\label{eq:ageDerivatives}
+ \partial_rS_A=-\frac{h}{L(1+\delta e^{-S_A})},\qquad
+ \partial_zS_A=\frac1{1+\delta e^{-S_A}}.
+\end{equation}
+For slip, use $x\log(1/x)\le1/e$ on $0<x\le1$ with $x=r/V_*$. On $x\ge1$, use $\log x\le x$. This proves \eqref{eq:Sbounds}; differentiation in $z$ gives $(1+q)^{-1}$.
+
+Joint continuity and the displayed linear-growth estimates give continuity of the superposition operators in $L^2$. Explicitly, strong $L^2$ convergence yields an almost-everywhere convergent subsequence and uniform integrability of the squared inputs; the same estimates and Vitali's theorem give strong $L^2$ convergence of the outputs. Finally,
+\[
+ e^{-S_A}=\delta^{-1}(S_A-z+q),
+\]
+which belongs to $L^2$. Thus no integrability assumption on $e^{-z}$ is needed for this single-step conclusion.
+\end{proof}
+
+For either state map and either friction regularisation define
+\begin{equation}\label{eq:effective}
+ m(r,z)=\mu(r,S(r,z)),\quad
+ F_z(w)=\begin{cases}m(|w|,z)w/|w|,&w\ne0,\\0,&w=0,\end{cases}
+ \quad J_z(r)=\int_0^r m(s,z)\dd s.
+\end{equation}
+These functions have the bounds, for a constant depending on the fixed parameters and $h$,
+\begin{equation}\label{eq:growth}
+ 0\le m(r,z)\le C(1+r+|z|),\qquad
+ 0\le J_z(r)\le C(r+r^2+|z|r).
+\end{equation}
+Indeed, only the positive part of the state enters the positive upper bound on $g$; apply Lemmas \ref{lem:friction} and \ref{lem:state} and $\log^+x\le x$.
+
+\begin{theorem}[Every prescribed-pressure implicit step exists]\label{thm:existence}
+Under \eqref{eq:coercive} and the assumptions of Section \ref{sec:model}, every combination of the two backward-Euler state laws and the two friction regularisations has a solution $(v,\alpha)\in\V\times L^2(\Gamma)$ of
+\begin{align}
+ \A_h(v,w)+\int_\Gamma p F_z(\tr v)\cdot\tr w\dd x&=\ell(w),
+                  &&w\in\V,\label{eq:mechStep}\\
+ \alpha&=S(|\tr v|,z).\label{eq:stateStep}
+\end{align}
+No smallness assumption on $h$, $p$, or $b/a$ is needed. A solution is supplied by a global minimiser of
+\begin{equation}\label{eq:reducedEnergy}
+ \E_h(v)=\tfrac12\A_h(v,v)-\ell(v)
+                  +\int_\Gamma p J_z(|\tr v|)\dd x.
+\end{equation}
+Every solution obeys
+\begin{equation}\label{eq:stepenergy}
+ \A_h(v,v)+\int_\Gamma p\,m(|\tr v|,z)|\tr v|\dd x=\ell(v),
+ \qquad \norm v_\V\le\frac{\norm\ell_{\V^*}}{c_h}.
+\end{equation}
+For ageing, the new state also satisfies $e^{-\alpha}\in L^2(\Gamma)$.
+\end{theorem}
+\begin{proof}
+The boundary integral in \eqref{eq:reducedEnergy} is finite and nonnegative by \eqref{eq:growth}. Hence
+\[
+ \E_h(v)\ge\tfrac12c_h\norm v_\V^2-\norm\ell_{\V^*}\norm v_\V,
+\]
+so minimizing sequences are bounded. A subsequence converges weakly in $\V$ and, by compactness of $\tr$, strongly in the boundary $L^2$ space.
+
+For fixed $z\in L^2$, $F_z$ is a continuous superposition map $L^2\to L^2$ by the same Vitali argument as in Lemma \ref{lem:state}. The boundary functional is continuously Fr\'echet differentiable, with derivative
+\[
+ w\longmapsto\int_\Gamma p F_z(\tr v)\cdot\tr w\dd x.
+\]
+One can verify this without differentiating $m$: use the fundamental theorem of calculus along the line between two boundary vectors and the continuity of $F_z$ in $L^2$. In particular, the boundary functional is continuous under the strong trace convergence. The quadratic part is weakly lower semicontinuous, and the linear part is weakly continuous. The direct method gives a minimiser. Its Euler equation is \eqref{eq:mechStep}, and Lemma \ref{lem:state} supplies \eqref{eq:stateStep}. Testing with $w=v$ gives \eqref{eq:stepenergy}. The final assertion follows from Lemma \ref{lem:state}.
+\end{proof}
+
+\begin{remark}[The correct potential]\label{rem:correctpotential}
+The fixed-state primitive is $\Phi(r,\alpha)=\int_0^r\mu(s,\alpha)\dd s$. In general it is \emph{incorrect} to substitute $\alpha=S(r,z)$ into $\Phi$ and then differentiate: this introduces the extra term $\partial_\alpha\Phi\,\partial_rS$. The correct reduced primitive is $J_z(r)=\int_0^r\mu(s,S(s,z))\dd s$. It need not be convex. Compact trace convergence, not convexity of the reduced boundary term, is what makes the direct proof work.
+\end{remark}
+
+\begin{corollary}[Heterogeneous parameters and cohesion]\label{cor:heterogeneous}
+The existence result remains valid for measurable coefficient fields satisfying
+\[
+ \begin{gathered}
+ 0<a_0\le a(x)\le a_1,\qquad 0<L_0\le L(x)\le L_1,\qquad
+ 0<V_0\le V_*(x)\le V_1,\\
+ 0\le b(x)\le b_1,\qquad |\mu_*(x)|\le M_1.
+ \end{gathered}
+\]
+with no requirement that $\norm{b/a}_\infty<2$. The fixed-step convergence result below also remains valid. A nonnegative prescribed cohesion $C\in L^\infty(\Gamma)$ can be added by including $\int_\Gamma C|\tr v|$ in the reduced energy and interpreting its boundary force as a convex subgradient.
+\end{corollary}
+\begin{proof}
+All state and friction estimates used above have constants uniform over the displayed coefficient ranges. The maps are measurable in position and continuous in speed and state; the same superposition and direct-method arguments therefore apply. The cohesion term is nonnegative, convex, and continuous under strong $L^2$ trace convergence. At a minimiser, the first-order condition for the sum of the smooth reduced energy and this convex term gives the stated variational inclusion. Its subgradient is monotone, so the uniqueness argument below is unchanged with the applicable uniform slope bound. The energy estimate gains the additional nonnegative term $\int_\Gamma C|\tr v|$.
+\end{proof}
+
+\subsection{Agreement with the state variational problem}
+The state equation is not only a formal pointwise update. At fixed $r\in L^2_+(\Gamma)$ the ageing state minimizes
+\[
+ \frac1{2h}\norm{\alpha-z}_{L^2}^2
+ +\int_\Gamma\left(\frac rL\alpha+\frac{V_*}{L}e^{-\alpha}\right)\dd x.
+\]
+At the output of \eqref{eq:SA}, all terms are finite and the subgradient is $(z-\alpha)/h\in L^2$. The scalar convexity inequality, integrated against any admissible comparison state, proves the state variational inequality and uniqueness.
+
+For slip, avoid separating terms that may individually have poor integrability. Use the nonnegative shifted functional
+\begin{equation}\label{eq:slipStateFunctional}
+ \frac1{2h}\norm{\alpha-z}_{L^2}^2
+ +\int_{\{r>0\}}\frac r{2L}
+       \left(\alpha+\log(r/V_*)\right)^2\dd x.
+\end{equation}
+At \eqref{eq:SS}, the parenthesis equals $(z+\log(r/V_*))/(1+q)$. The coefficient $r/(1+q)^2$ is bounded by $L/(4h)$, and $r\log^2(r/V_*)/(1+q)^2$ is bounded on $r\ge0$. Thus the output has finite energy and is the unique pointwise, and hence global, minimiser of \eqref{eq:slipStateFunctional}. Its derivative is again $(z-\alpha)/h$. This recovers the state variational formulation without assuming that $r\log r$ separately belongs to $L^2$.
+
+\subsection{A second existence proof and its relation to the thesis}
+For a fixed state $\alpha$, the mechanical primitive is convex because $\mu(\cdot,\alpha)$ is nondecreasing. Its unique solution $R(\alpha)$ satisfies the bound in \eqref{eq:stepenergy}, independently of $\alpha$. Comparing the two fixed-state variational equations and using \eqref{eq:muLip} proves
+\[
+ \norm{R(\alpha)-R(\beta)}_\V
+ \le\frac{\norm p_\infty b\norm\tr}{c_h}\norm{\alpha-\beta}_{L^2}.
+\]
+Consequently $v\mapsto R(S(|\tr v|,z))$ is continuous, compact, and maps a sufficiently large closed ball into itself. Schauder's theorem gives an alternative proof of Theorem \ref{thm:existence}. The state-independent bound on $R$ is the useful simplification: no sublinear estimate on the entire state-to-rate composition is required.
+
+\begin{corollary}[Exact current-rate flows]\label{cor:flow}
+Theorem \ref{thm:existence}, apart from the backward-Euler state-functional assertions, also holds if the state update is the exact flow over time $h$ with the \emph{current} speed held fixed:
+\begin{align}
+ S_A^{\rm fl}(r,z)&=\log\left(e^{z-q}+\delta\frac{1-e^{-q}}q\right),
+      &S_A^{\rm fl}(0,z)&=\log(e^z+\delta),\label{eq:ageflow}\\
+ S_S^{\rm fl}(r,z)&=e^{-q}z-(1-e^{-q})\log(r/V_*),
+      &S_S^{\rm fl}(0,z)&=z.\label{eq:slipflow}
+\end{align}
+This existence statement overlaps \cite[Corollary 3.8]{PippingThesis} and is not asserted to be new.
+\end{corollary}
+\begin{proof}
+Direct integration of \eqref{eq:ageODE} in $e^\alpha$ and of the linear equation \eqref{eq:slipODE} gives the formulas. The ageing bounds \eqref{eq:Abounds} follow by comparison along the flow. For slip, $1-e^{-q}\le\min(1,q)$ gives the same absolute bound as \eqref{eq:Sbounds}; while the state is positive its upward derivative is at most $V_*/(eL)$, giving the same positive-part bound. Both maps are continuous, $0\le\partial_zS^{\rm fl}\le1$, and the proof of Theorem \ref{thm:existence} applies. For ageing, $1-e^{-q}\ge q/(1+q)$ gives $e^{-S_A^{\rm fl}}\le(1+q)/\delta$.
+\end{proof}
+The current-rate qualifier is necessary for this particular radial primitive: freezing a nontrivial vector average of old and new velocities need not give a radial function of the new velocity. The broader exact-flow discretisations in the thesis should not be conflated with the radial special case used here.
+
+\subsection{Purely elastic mechanical steps}
+Let $a_E$ be the coercive elastic form and $\rho$ the positive density. Without any bulk viscosity, backward Euler and the average-acceleration Newmark scheme give, respectively,
+\begin{align}
+ \A_h^{\rm BE}(v,w)&=\frac1h(\rho v,w)_{L^2}+h\,a_E(v,w),\label{eq:BEform}\\
+ \A_h^{\rm NM}(v,w)&=\frac2h(\rho v,w)_{L^2}+\frac h2a_E(v,w).\label{eq:NMform}
+\end{align}
+Previous-step data appear in $\ell$. Both forms are coercive for each fixed positive $h$. Thus every step of a finite time partition exists for both state laws and both regularisations, provided the initial mechanical data are in the spaces required to form the selected scheme. The state output remains in $L^2$, so the induction does not require an artificial lower cutoff on state. This is a spatial-continuum result, not merely a finite-element existence statement.
+
+\section{Mesh-independent uniqueness for sufficiently small steps}\label{sec:unique}
+\begin{lemma}[Radial hypomonotonicity]\label{lem:radial}
+Let $m:[0,\infty)\to[0,\infty)$ be continuous, with $m(0)=0$, locally absolutely continuous, and $m'\ge-\kappa$ almost everywhere. Then the radial map $F(w)=m(|w|)w/|w|$ satisfies
+\begin{equation}\label{eq:hypomono}
+ (F(w)-F(v))\cdot(w-v)\ge-\kappa|w-v|^2.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The scalar function $m(r)+\kappa r$ is nonnegative and nondecreasing. Its radial primitive is convex, and its gradient is $F+\kappa I$. Monotonicity of that gradient is exactly \eqref{eq:hypomono}.
+\end{proof}
+
+\begin{proposition}[Explicit feedback bounds]\label{prop:kappa}
+For the effective backward-Euler ageing law, either regularisation satisfies $\partial_rm\ge-\kappa_A$, where
+\begin{equation}\label{eq:kappaA}
+ \kappa_A=\frac{bh}{L}.
+\end{equation}
+For backward-Euler slip, if $z\le Z$ almost everywhere with $Z\in\R$, a common lower-slope bound is
+\begin{equation}\label{eq:kappaS}
+ \kappa_S=\frac{bh}{L}\left(\frac98+(Z-\log\delta)^+\right).
+\end{equation}
+The exact ageing flow has the same bound \eqref{eq:kappaA}; the exact slip flow has the valid bound
+\begin{equation}\label{eq:kappaSflow}
+ \kappa_S^{\rm fl}=\frac{bh}{L}
+        \left(1+e^{-2}+(Z-\log\delta)^+\right).
+\end{equation}
+\end{proposition}
+\begin{proof}
+For ageing, \eqref{eq:ageDerivatives} gives
+\[
+ \frac{\dd}{\dd r}g(r,S_A(r,z))
+ =\frac ar+b\partial_rS_A\ge-\frac{bh}{L}.
+\]
+Truncation retains either this derivative or zero. For the inverse-hyperbolic-sine form the derivative is multiplied by $\sigma\in(0,1)$, which preserves a negative lower bound.
+
+For slip, put $c=z-\log\delta$, so $\log(r/V_*)+z=\log q+c$. Direct differentiation yields
+\begin{equation}\label{eq:slipgprime}
+ \frac{\dd}{\dd r}g(r,S_S(r,z))
+ =\frac hL\left[\frac aq-
+ b\frac{\log q+c+1+q}{(1+q)^2}\right].
+\end{equation}
+For $q\ge1$, $\log q\le q-1$ and
+$\max_{q\ge1}(q-1)/(1+q)^2=1/8$, attained at $q=3$. For $q<1$, $\log q$ is nonpositive. The remaining positive terms are bounded by $c^++1$. This proves \eqref{eq:kappaS}.
+
+For the exact ageing flow, the quantity inside the logarithm in \eqref{eq:ageflow} is a positive sum of terms of the form $Ce^{-rt/L}$ with $0\le t\le h$ (including an integral over $t$). Its logarithmic derivative is minus a weighted mean of $t/L$, so it lies in $[-h/L,0]$.
+For the exact slip flow,
+\[
+ \partial_rS_S^{\rm fl}=-\frac hL
+ \left[e^{-q}(c+\log q)+\frac{1-e^{-q}}q\right].
+\]
+Use $(1-e^{-q})/q\le1$ and
+$e^{-q}\log^+q\le e^{-q}(q-1)\le e^{-2}$ for $q\ge1$. The regularisation argument is unchanged.
+\end{proof}
+
+Define the boundary impedance of the mechanical step by
+\begin{equation}\label{eq:impedance}
+ \Lambda_h=\inf_{\tr v\ne0}\frac{\A_h(v,v)}{\norm{\tr v}_{L^2}^2}>0.
+\end{equation}
+The positivity follows from coercivity and boundedness of the trace. The notation $\norm v_A^2=\A_h(v,v)$ will be used, and $\norm\ell_{A^*}$ is the corresponding dual norm.
+
+\begin{theorem}[Uniqueness and stability of a step]\label{thm:unique}
+Let $\kappa$ be an applicable bound from Proposition \ref{prop:kappa}. If
+\begin{equation}\label{eq:uniquenesscriterion}
+ \norm p_\infty\kappa<\Lambda_h,
+ \qquad d_h:=1-\frac{\norm p_\infty\kappa}{\Lambda_h}>0,
+\end{equation}
+then the coupled step has exactly one solution and the reduced energy is strongly convex. For two loads with the same state datum,
+\begin{equation}\label{eq:loadstability}
+ \norm{v-\widetilde v}_A
+ \le d_h^{-1}\norm{\ell-\widetilde\ell}_{A^*}.
+\end{equation}
+For differing state data $z,\widetilde z$ and a common slope bound (in particular a common upper bound $Z$ for slip),
+\begin{equation}\label{eq:datastability}
+ \norm{v-\widetilde v}_A\le d_h^{-1}
+ \left[\norm{\ell-\widetilde\ell}_{A^*}
+ +\frac{\norm p_\infty b}{\sqrt{\Lambda_h}}
+       \norm{z-\widetilde z}_{L^2}\right].
+\end{equation}
+\end{theorem}
+\begin{proof}
+For fixed $z$, Lemma \ref{lem:radial} gives, after integrating against $p$,
+\[
+ \A_h(v-\widetilde v,v-\widetilde v)
+ +\int_\Gamma p(F_z(\tr v)-F_z(\tr\widetilde v))\cdot\tr(v-\widetilde v)
+ \ge d_h\norm{v-\widetilde v}_A^2.
+\]
+This is strong monotonicity of the derivative of the reduced energy. It proves strong convexity and uniqueness, while comparison of the two equations proves \eqref{eq:loadstability}. For state perturbations, $|S(r,z)-S(r,\widetilde z)|\le|z-\widetilde z|$ and Lemma \ref{lem:friction} imply
+$|F_z(w)-F_{\widetilde z}(w)|\le b|z-\widetilde z|$.
+Bound the resulting boundary term by Cauchy--Schwarz and
+$\norm{\tr(v-\widetilde v)}_{L^2}\le\Lambda_h^{-1/2}\norm{v-\widetilde v}_A$.
+\end{proof}
+For ageing the state itself satisfies
+\[
+ \norm{\alpha-\widetilde\alpha}_{L^2}
+ \le\norm{z-\widetilde z}_{L^2}+\frac hL\norm{\tr(v-\widetilde v)}_{L^2}.
+\]
+For slip, continuity of the state map is guaranteed by Lemma \ref{lem:state}; no global $L^2$ Lipschitz assertion in speed is made.
+
+\begin{corollary}[Pure elasticity and a mesh-independent time-step threshold]\label{cor:uniformh}
+Suppose that, with $H=L^2(\Omega;\R^d)$,
+\begin{equation}\label{eq:multtrace}
+ \norm{\tr v}_{L^2}^2\le C_T\norm v_H\norm v_\V,\qquad
+ a_E(v,v)\ge c_E\norm v_\V^2,\qquad \rho\ge\rho_0>0.
+\end{equation}
+For both \eqref{eq:BEform} and \eqref{eq:NMform},
+\begin{equation}\label{eq:lambdalower}
+ \Lambda_h\ge\Lambda_*:=\frac{2\sqrt{\rho_0c_E}}{C_T}
+ \quad\text{for all }h>0.
+\end{equation}
+Hence all sufficiently small steps are uniquely solvable for both state laws and regularisations, without bulk viscosity and without a $b/a$ restriction. For slip assume an essentially bounded positive part of the initial state. On a prescribed finite time interval, one common threshold suffices for every step. The same threshold applies to any conforming Galerkin subspace.
+\end{corollary}
+\begin{proof}
+The arithmetic--geometric mean inequality applied to the mass and elastic terms gives, in either scheme,
+\[
+ \A_h(v,v)\ge2\sqrt{\rho_0c_E}\norm v_H\norm v_\V.
+\]
+This proves \eqref{eq:lambdalower}. Since $\kappa_A=O(h)$ and both slip bounds are $O(h(1+|\log h|))$ as $h\downarrow0$, \eqref{eq:uniquenesscriterion} holds for sufficiently small $h$.
+
+The positive-state bounds propagate along any partition of $[0,T]$:
+\begin{equation}\label{eq:statepropagation}
+ \alpha_n^+\le\alpha_0^++\frac{V_*T}{L}\quad\text{(ageing)},\qquad
+ \alpha_n^+\le\alpha_0^++\frac{V_*T}{eL}\quad\text{(slip)}.
+\end{equation}
+They hold for backward Euler and the exact frozen-rate flow. Thus a common $Z$ can be used for the slip estimates. Restriction to a subspace cannot lower the infimum in \eqref{eq:impedance}, proving mesh independence.
+\end{proof}
+The multiplicative trace estimate in \eqref{eq:multtrace} is the usual one on anchored Lipschitz elastic spaces; it is stated explicitly so the result can be applied only where it is valid. A fixed-state contraction argument alone would not make the $h$-independent boundary impedance as transparent.
+
+\section{Sharp backward-Euler constitutive thresholds}\label{sec:thresholds}
+The sufficient uniqueness condition involves the bulk impedance, not only the monotonicity of the constitutive law. The latter nevertheless admits an exact classification for the inverse-hyperbolic-sine regularisation.
+
+\begin{theorem}[Sharp monotonicity thresholds in logarithmic state]\label{thm:thresholds}
+Fix $h>0$ and a finite scalar old state $z$. Put $\beta=b/a$ and $c=z-\log\delta$. For backward Euler in logarithmic state, the effective inverse-hyperbolic-sine friction $r\mapsto m(r,z)$ is nondecreasing on $[0,\infty)$ exactly in the following regimes:
+\begin{align}
+ \text{ageing:}\quad &\beta\le\beta_A^*(c)
+ :=\frac1{1+W(e^{c-2})},\label{eq:betaA}\\
+ \text{slip:}\quad &\beta\le\beta_S^*(c)
+ :=\frac{q_*-1}{q_*},\label{eq:betaS}
+\end{align}
+where $W$ is the positive real Lambert function and $q_*>1$ is the unique solution of
+\begin{equation}\label{eq:qstar}
+ \log q_*+c=\frac{2(q_*+1)}{q_*-1}.
+\end{equation}
+Both thresholds lie strictly between zero and one. They are also sufficient for truncated friction; necessity for the truncated law requires that the negative-slope portion is not removed by truncation.
+\end{theorem}
+\begin{proof}
+The inverse-hyperbolic-sine derivative is a strictly positive multiple of the derivative of $g$, so signs coincide for $r>0$.
+For ageing, set $t=\delta e^{-S_A}>0$. Equation \eqref{eq:SA} becomes
+\[
+ q=t+\log t+c>0.
+\]
+The derivative sign is that of $1-\beta q/(1+t)$. Thus the sharp threshold is the minimum, over $q>0$, of
+\[
+ R(t)=\frac{1+t}{t+\log t+c}.
+\]
+Differentiation gives
+\[
+ R'(t)=\frac{\log t+c-2-1/t}{(t+\log t+c)^2}.
+\]
+The numerator is strictly increasing and changes sign once in the admissible interval; at the left endpoint $q=0$ it is negative, while it tends to $+\infty$ at infinity. At its zero, writing $y=1/t$ gives $y e^y=e^{c-2}$ and $R=t/(t+1)=1/(1+y)$. This proves \eqref{eq:betaA}.
+
+For slip, \eqref{eq:slipgprime} gives the sign of $1-\beta G(q)$, where
+\[
+ G(q)=\frac{q(\log q+c+1+q)}{(1+q)^2},\qquad
+ G'(q)=\frac{(1-q)(\log q+c)+2(1+q)}{(1+q)^3}.
+\]
+On $q>1$, the function
+$H(q)=\log q+c-2(q+1)/(q-1)$ increases strictly from $-\infty$ to $+\infty$; its derivative is $1/q+4/(q-1)^2$. Since the numerator of $G'$ equals $(1-q)H(q)$, $G$ has exactly one maximum there, at $q_*$. Any critical point in $0<q<1$ has value $q/(q-1)<0$; also $G(0+)=0$ and $G'(1)=1/2>0$. Therefore the maximum on the whole positive axis is the one at $q_*$. Substituting \eqref{eq:qstar} gives $G(q_*)=q_*/(q_*-1)$, proving \eqref{eq:betaS}. The stated range and the truncation qualification follow immediately.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{Illustrations of the exact threshold formulas. Values are rounded numerical evaluations, not the proof of sharpness.}
+\begin{tabular}{rcc}
+\toprule
+$c$ & $\beta_A^*(c)$ & $\beta_S^*(c)$\\\midrule
+$-5$ & $0.99908978$ & $0.99909143$\\
+$-2$ & $0.98232879$ & $0.98291458$\\
+$0$ & $0.89283463$ & $0.90922372$\\
+$2$ & $0.63810374$ & $0.74523686$\\
+$5$ & $0.31172653$ & $0.51754082$\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Changing state coordinates changes the discrete threshold}
+The threshold is a property of a specified integrator. Let $\vartheta=e^\alpha=V_*\theta/L$. Applying backward Euler to
+$\dot\vartheta=(V_*-r\vartheta)/L$, instead of to $\alpha$, gives
+\[
+ \vartheta_{\rm new}=\frac{e^z+\delta}{1+q},\qquad
+ \alpha_{\rm new}=\log(e^z+\delta)-\log(1+q).
+\]
+The effective logarithmic friction derivative is now
+\begin{equation}\label{eq:thetaEuler}
+ g'(r)=\frac ar-\frac{bh}{L(1+q)}
+ =\frac ar\left(1-\beta\frac q{1+q}\right).
+\end{equation}
+Thus the effective inverse-hyperbolic-sine law is nondecreasing for all speeds if and only if $b\le a$. Backward Euler in $\alpha$ and backward Euler in $e^\alpha$ do not commute with the coordinate change. In particular, the nonmonotonicity at $b=a$ in Theorem \ref{thm:thresholds} must not be interpreted as a continuous-time ill-posedness theorem.
+
+\section{Exact multiplicity, including a continuum slab}\label{sec:multiplicity}
+\begin{theorem}[At least three solutions with $b/a=1$]\label{thm:three}
+Choose the dimensionless parameters
+\begin{equation}\label{eq:exampleparams}
+ a=b=p=h=L=V_*=\mu_*=1,\qquad z=3,
+ \qquad B(r)=\frac r8+m(r,3).
+\end{equation}
+For the backward-Euler ageing law, $B(r)=14/5$ has at least three positive solutions for each friction regularisation. For the backward-Euler slip law, $B(r)=5/2$ has at least three positive solutions for each regularisation.
+\end{theorem}
+\begin{proof}
+All four functions $B$ are continuous, $B(0)=0$, and $B(32)\ge4$.
+For ageing, $S_A(4,3)=0$, so truncated friction gives
+\[
+ B(4)=\tfrac32+\log4>\tfrac{17}{6}>\tfrac{14}{5}.
+\]
+The inverse-hyperbolic-sine value is still larger. Put $r_b=5+\log2$, for which $S_A(r_b,3)=-\log2$. Then
+\[
+ g(r_b,S_A)=1+\log(r_b/2)>0.
+\]
+For $g>0$, the elementary estimate
+\begin{equation}\label{eq:asinherror}
+ g<\asinh(e^g/2)\le g+e^{-2g}
+\end{equation}
+follows from $\sqrt{1+y}\le1+y/2$ and $\log(1+y)\le y$. Using
+\[
+ \log2<\tfrac7{10},\quad \log(57/20)<\tfrac{21}{20},\quad e^2>7,
+\]
+we obtain for the larger, inverse-hyperbolic-sine value
+\[
+ B(r_b)<\frac{57}{80}+\frac{41}{20}+\frac4{175}
+ =\frac{7799}{2800}<\frac{14}{5}.
+\]
+The intermediate value theorem gives roots in the three disjoint intervals
+$(0,4)$, $(4,5+\log2)$, and $(5+\log2,32)$.
+
+For slip, $S_S(1,3)=3/2$, hence the truncated value is
+$B(1)=21/8>5/2$. At $r=3$,
+\[
+ S_S(3,3)=\frac{3-3\log3}{4},\qquad
+ g(3,S_S)=\frac74+\frac14\log3>2.
+\]
+Since $1<\log3<11/10$ and $e^4>49$, \eqref{eq:asinherror} gives
+\[
+ B(3)<\frac{17}{8}+\frac{11}{40}+\frac1{49}
+ =\frac{593}{245}<\frac52
+\]
+for the larger regularisation. Therefore roots exist in $(0,1)$, $(1,3)$, and $(3,32)$ for both forms.
+
+All strict logarithmic estimates used here admit elementary rational certificates. For example, $\log2>2/3$ follows from the first positive term in
+$\log2=2\sum_{j\ge0}(1/3)^{2j+1}/(2j+1)$; the upper bounds follow by showing $e^{7/10}>2$, $e^{21/20}>57/20$, and $e^{11/10}>3$ with finite positive Taylor sums. An upper Taylor bound gives $e<3$. The supporting program performs these comparisons with exact rational arithmetic.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{Three illustrative roots in the analytically certified disjoint intervals. No assertion that there are only three roots is needed.}
+\begin{tabular}{llrrr}
+\toprule
+State law & Friction & First & Second & Third\\\midrule
+Ageing & Truncated & $0.398225$ & $4.878586$ & $8.632309$\\
+Ageing & Inverse sinh & $0.395830$ & $5.075267$ & $7.986605$\\
+Slip & Truncated & $0.360303$ & $1.847978$ & $7.102135$\\
+Slip & Inverse sinh & $0.353703$ & $1.934343$ & $6.545627$\\\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Stationary roots are not certified global minimisers.}
+For these dimensionless examples the scalar reduced energy, up to a root-independent slab constant, is
+\begin{equation}\label{eq:scalarenergy}
+ E(r)=\frac{r^2}{16}-\mathcal Lr+\int_0^r m(s,3)\dd s,
+ \qquad E''(r)=\frac18+\partial_rm(r,3),
+\end{equation}
+where $\mathcal L=14/5$ for ageing and $5/2$ for slip. Table \ref{tab:rootenergy} records numerical quadrature, repeated at 40 and 70 decimal digits. It is supplementary evidence, not an interval certificate. The computed scalar curvature at the middle displayed root is negative in every example, which is consistent with failure of minimality along this admissible family; the displayed rounded calculation is not a certified curvature bound. The computed positive curvature at an outer root is consistent with a strict minimum in the scalar restriction; without certified curvature bounds it does not establish even that classification rigorously, and it gives no full-continuum minimality conclusion. The first ageing root and third slip root have the lowest energies \emph{among the displayed roots}; no exhaustive root count or global-minimiser classification follows. None of these curvature statements establishes dynamic stability of a continuous-time evolution. Theorem \ref{thm:Galerkin} concerns exact global minimisers, not an arbitrary root returned by a nonlinear solver.
+\begin{table}[ht]
+\centering\small
+\caption{Numerical energies and curvatures at the displayed roots. Curvature refers to the scalar reduced family only; rounded values are not certified bounds.}\label{tab:rootenergy}
+\begin{tabular}{llrrr}\toprule
+State law & Friction & Branch & $E(r)$ & $E''(r)$\\\midrule
+Ageing & Truncated & 1 & $-0.315808$ & $1.700855$\\
+ &  & 2 & $0.848714$ & $-0.072614$\\
+ &  & 3 & $0.709780$ & $0.048453$\\
+Ageing & Asinh & 1 & $-0.297522$ & $1.702974$\\
+ &  & 2 & $0.890914$ & $-0.057245$\\
+ &  & 3 & $0.822268$ & $0.041350$\\
+Slip & Truncated & 1 & $-0.237447$ & $1.095728$\\
+ &  & 2 & $-0.109876$ & $-0.130575$\\
+ &  & 3 & $-0.535208$ & $0.066814$\\
+Slip & Asinh & 1 & $-0.218796$ & $1.128678$\\
+ &  & 2 & $-0.079565$ & $-0.118482$\\
+ &  & 3 & $-0.385469$ & $0.063937$\\
+\bottomrule\end{tabular}
+\end{table}
+
+\begin{corollary}[Multiplicity in a genuine elastic spatial problem]\label{cor:slab}
+The four examples of Theorem \ref{thm:three} occur as exact solutions of a continuum antiplane slab time step, not only as abstract scalar equations.
+\end{corollary}
+\begin{proof}
+Consider the one-dimensional shear problem
+\[
+ -c_0v''+m_0v=0\quad(0<y<H),\qquad
+ v(0)=D,\qquad c_0v'(H)+m(v(H),3)=0,
+\]
+where the final boundary equation is evaluated on positive endpoint values. Here $c_0,m_0>0$ are elastic-step and inertial coefficients, not a bulk dashpot. Writing $\lambda_0=\sqrt{m_0/c_0}$ and $r=v(H)$ gives
+\[
+ c_0v'(H)=c_0\lambda_0\coth(\lambda_0H)r
+              -c_0\lambda_0\operatorname{csch}(\lambda_0H)D.
+\]
+Take $H=\lambda_0=1$ and $c_0=m_0=\tanh(1)/8$. Then the endpoint equation is
+\[
+ \frac r8+m(r,3)=\frac{c_0D}{\sinh1}.
+\]
+Set $D=(14/5)\sinh(1)/c_0$ for ageing and $D=(5/2)\sinh(1)/c_0$ for slip. Each certified endpoint root yields a distinct exact solution of the differential equation. Positive $c_0,m_0$ of this size are realised by the pure-elastic backward-Euler form with $h=1$ and suitable positive modulus and density.
+
+Equivalently, take a slab periodic in tangential directions and a tangential displacement depending only on depth. The same profile is an exact antiplane solution per unit cross-sectional area. The nonhomogeneous condition at $y=0$ can be lifted by a function vanishing at the friction boundary, placing the example in the abstract framework of Section \ref{sec:model}.
+\end{proof}
+The example disproves arbitrary-step uniqueness for these discretisations, but it does not disprove the small-step theorem. It also illustrates why existence obtained by global minimisation does not mean every solution is a global minimiser.
+
+\section{Conforming approximation at a fixed time step}\label{sec:Galerkin}
+\begin{theorem}[Strong convergence of global-minimiser Galerkin approximations]\label{thm:Galerkin}
+Fix the parameters, $h$, $z$, $p$, and $\ell$ of Theorem \ref{thm:existence}. Let $\V_n\subset\V$ be finite-dimensional conforming spaces with the approximation property: for each $v\in\V$, there exist $w_n\in\V_n$ with $w_n\to v$ in $\V$. Let $v_n$ be any global minimiser of $\E_h$ over $\V_n$, with exact evaluation of the boundary integral. Then every subsequence has a further subsequence converging strongly in $\V$ to a global minimiser of $\E_h$, and the corresponding states converge strongly in $L^2(\Gamma)$. If the solution is unique, the whole sequence converges.
+\end{theorem}
+\begin{proof}
+Since zero belongs to every $\V_n$, coercivity and $\E_h(v_n)\le\E_h(0)=0$ give a uniform bound. Extract a weakly convergent subsequence in $\V$, with strong convergence of the traces. The proof of Theorem \ref{thm:existence} gives the lower bound
+$\E_h(v)\le\liminf\E_h(v_n)$.
+For any global minimiser $v_*$, choose an approximating sequence $w_n\to v_*$ in $\V$. Continuity of every energy term under strong convergence gives
+\[
+ \limsup\E_h(v_n)\le\lim\E_h(w_n)=\E_h(v_*).
+\]
+Thus $v$ is a global minimiser and the energies converge. The linear and boundary terms already converge, so $\A_h(v_n,v_n)\to\A_h(v,v)$. Weak convergence plus convergence of the Hilbert norms induced by $\A_h$ gives strong convergence in $\V$. State convergence follows from Lemma \ref{lem:state}, or its exact-flow version. Uniqueness identifies all cluster points.
+\end{proof}
+This theorem does not assert convergence of an arbitrary stationary-point solver, mass-lumped scheme, or Newton iteration. Those are separate numerical-analysis questions. The accompanying slab experiment uses conforming piecewise-linear elements and a consistent mass matrix. Five meshes, with $8,16,32,64,128$ cells, retain all three branches in each example; the endpoint-impedance errors decrease at approximately second order. These numerical observations support the examples but are not used in any existence proof.
+
+\section{A continuous-time homogeneous bimaterial benchmark}\label{sec:characteristic}
+A tractable continuous-time sector can be solved exactly without viscosity. It should be distinguished from a theorem for perturbations varying along a bimaterial interface.
+
+Let two elastic half-lines have coordinates $y\ge0$ directed away from the interface. Their antiplane displacement fields $u_\pm$ obey
+\begin{equation}\label{eq:halfwaves}
+ \rho_\pm\partial_{tt}u_\pm=\mu_\pm\partial_{yy}u_\pm,
+ \qquad \rho_\pm,\mu_\pm>0.
+\end{equation}
+Define velocity $w_\pm=\partial_tu_\pm$, shear quantity $q_\pm=\mu_\pm\partial_yu_\pm$, wave speed $c_\pm=\sqrt{\mu_\pm/\rho_\pm}$, and impedance $Z_\pm=\sqrt{\rho_\pm\mu_\pm}$. The incoming and outgoing characteristic fields are
+\[
+ I_\pm=w_\pm+q_\pm/Z_\pm,\qquad
+ O_\pm=w_\pm-q_\pm/Z_\pm.
+\]
+They satisfy $\partial_tI_\pm=c_\pm\partial_yI_\pm$ and
+$\partial_tO_\pm=-c_\pm\partial_yO_\pm$.
+Let $F$ denote the signed friction opposing the relative velocity
+$v=w_+(t,0)-w_-(t,0)$. With the depth convention above,
+\begin{equation}\label{eq:interfaceconditions}
+ q_+(t,0)=F(t),\qquad q_-(t,0)=-F(t),\qquad
+ F=p(t)\mu(|v|,\alpha)\sgn v.
+\end{equation}
+The boundary incoming signals $I_\pm(t,0)$ are determined by the initial fields. Put
+\begin{equation}\label{eq:radiation}
+ \eta=\left(Z_+^{-1}+Z_-^{-1}\right)^{-1},\qquad
+ T(t)=\eta\left(I_+(t,0)-I_-(t,0)\right).
+\end{equation}
+Then the full interface law reduces exactly to
+\begin{equation}\label{eq:interfaceODE}
+ \eta v+p(t)\mu(|v|,\alpha)\sgn v=T(t),\qquad
+ \dot\alpha=G_A(|v|,\alpha)\quad\hbox{or}\quad G_S(|v|,\alpha).
+\end{equation}
+
+\begin{theorem}[Global characteristic solution in the homogeneous sector]\label{thm:characteristic}
+Assume the incoming characteristic signals and the nonnegative prescribed pressure are measurable and locally essentially bounded in time. For every finite $\alpha_0\in\R$, either state law and either friction regularisation give a unique solution of \eqref{eq:interfaceODE} on every finite time interval, with $\alpha$ absolutely continuous and $v$ measurable. If the initial characteristic fields $I_\pm^0,O_\pm^0$ are locally essentially bounded and consistent with the prescribed locally absolutely continuous initial displacements, the reconstructed characteristic solution of \eqref{eq:halfwaves}--\eqref{eq:interfaceconditions} is unique for those data. For fixed material parameters and each $T_0<\infty$, on bounded input sets, convergence of $I_\pm(\cdot,0)$ and $p$ in $L^\infty(0,T_0)$ and of $\alpha_0$ in $\R$ implies convergence of $\alpha$ in $C([0,T_0])$ and of $v,F$ in $L^\infty(0,T_0)$. If the initial characteristic fields also converge locally in essential-supremum norm, the reconstructed characteristic fields converge in that norm on finite characteristic cones; locally uniform convergence of initial displacements additionally gives uniform displacement convergence on compact space--time sets. No bulk viscosity, small material contrast, or upper bound on $b/a$ is required.
+\end{theorem}
+\begin{proof}
+For fixed $t,\alpha$, the first equation in \eqref{eq:interfaceODE} has a unique solution because its left side is continuous, strictly increasing, onto, and has monotonicity constant $\eta$. It has the sign of $T$ and satisfies
+\begin{equation}\label{eq:rBound}
+ |v(t)|\le |T(t)|/\eta.
+\end{equation}
+Let $r(t,\alpha)=|v(t,\alpha)|$ and $M=\norm T_{L^\infty(0,T_0)}/\eta$ on a finite interval. The inverse is measurable in $t$ and continuous in $\alpha$. Where derivatives exist and $r>0$, the friction derivative formulas give
+\begin{equation}\label{eq:rAlpha}
+ |\partial_\alpha r|
+ =\frac{p b\sigma}{\eta+p a\sigma/r}
+ \le\frac ba r,
+\end{equation}
+where $\sigma\in[0,1]$ is one on the active truncated branch, zero on the inactive branch, or the inverse-hyperbolic-sine factor. The inverse is locally Lipschitz in $\alpha$ also across the truncated transition, as follows directly from strong monotonicity and \eqref{eq:muLip}; hence the almost-everywhere estimate is legitimate. If $T=0$, then $r=0$ for every state.
+
+Equation \eqref{eq:rAlpha} removes the apparent logarithmic obstruction at $r=0$ in the slip composition. For $|\alpha|\le K$ its derivative with respect to $\alpha$ has absolute value at most
+\[
+ \frac1L\left[M+\frac ba\left(M(K+1)+
+       \max_{0\le r\le M}r|\log(r/V_*)|\right)\right].
+\]
+This is finite. The ageing composition has derivative bounded by
+$L^{-1}(V_*e^K+(b/a)M)$. Thus the scalar Carath\'eodory equation for $\alpha$ is locally uniquely solvable.
+
+For ageing, comparison gives, for $0\le t\le T_0$,
+\begin{equation}\label{eq:contAgeBounds}
+ \alpha(t)\ge\alpha_0-Mt/L,\qquad
+ \alpha(t)^+\le\alpha_0^++V_*t/L.
+\end{equation}
+For slip the integrating-factor formula, with coefficient $r(t)/L\ge0$, gives
+\begin{equation}\label{eq:contSlipBounds}
+ |\alpha(t)|\le|\alpha_0|+
+ \frac tL\max_{0\le r\le M}r|\log(r/V_*)|.
+\end{equation}
+No finite-time escape is possible on a bounded input interval; the solution extends to every $T_0<\infty$.
+
+Once $F$ is known, the outgoing signals are
+\[
+ O_+(t,0)=I_+(t,0)-2F(t)/Z_+,
+ \qquad O_-(t,0)=I_-(t,0)+2F(t)/Z_-.
+\]
+If $I^0,O^0$ are the initial characteristic fields in either half-line, then
+\[
+ I(t,y)=I^0(y+ct),\qquad
+ O(t,y)=\begin{cases}O^0(y-ct),&y\ge ct,\\
+ O(t-y/c,0),&0\le y<ct.
+ \end{cases}
+\]
+Recover $w=(I+O)/2$ and $q=Z(I-O)/2$ and integrate the velocity with the prescribed initial displacement. These formulas solve the first-order wave system in distributions; classical compatibility gives a classical solution when the data are correspondingly smooth. They also prove uniqueness in this characteristic class.
+
+Finally, on bounded sets the monotone inverse in \eqref{eq:interfaceODE} is uniformly continuous in $(T,p,\alpha)$. The maps $r\mapsto r\log(r/V_*)$ and the other coefficients are uniformly continuous on $[0,M]$. Essential-supremum input convergence therefore gives convergence, uniform in compact state sets and essentially uniform in time, of the scalar vector fields. The local state Lipschitz estimates and Gronwall's inequality give convergence in $C([0,T_0])$ for $\alpha$ and in $L^\infty(0,T_0)$ for $v,F$. The explicit characteristic formulas preserve the essential-supremum bounds on finite cones because the speeds are fixed. Integrating velocity with the convergent initial displacement gives the stated displacement convergence. No global Lipschitz assertion in the input $T$ at zero speed is needed.
+\end{proof}
+A positive pressure-relaxation filter $\tau_p\dot p+p=P(t)$, with $\tau_p>0$, $p(0)\ge0$, and bounded $P\ge0$, can be prepended: its explicit solution is nonnegative and bounded. This adds a prescribed scalar normal-input relaxation, not the unknown in-plane elastodynamic normal-stress coupling. The theorem is a complete benchmark result for its stated model; it is not a nonlinear version of the general dissimilar-material problem in \cite{RR,RLR}.
+
+\section{What the results do and do not settle}\label{sec:remaining}
+\subsection{The missing continuous-time estimate is explicit}
+The energy of a purely elastic wave controls displacement in $H^1$ and velocity in bulk $L^2$, not the trace of velocity in $L^2(\Gamma)$. There is no bounded trace operator from bulk $L^2$ to boundary $L^2$. In a flat boundary chart a direct witness is
+\begin{equation}\label{eq:boundarylayer}
+ v_\varepsilon(x',y)=\varepsilon^{-1/2}\psi(x')\chi(y/\varepsilon)e_t,
+ \qquad \chi(0)=1,
+\end{equation}
+where $\psi,\chi$ are smooth compactly supported functions and $e_t$ is tangential. The bulk $L^2$ norm remains constant while the squared boundary $L^2$ norm grows as $\varepsilon^{-1}$. These fields are a trace-estimate counterexample, not asserted PDE solutions.
+
+Thus the fixed-step bounds and fixed-step Galerkin convergence do not by themselves identify the nonlinear friction and state terms as $h\downarrow0$. A continuous-time proof would need additional boundary regularity, an appropriate weaker trace/solution framework with nonlinear compactness, or a different uniform estimate tied to the actual equations. None is established here for the general multidimensional purely elastic problem. The homogeneous theorem avoids this gap because exact characteristics directly determine the boundary velocity.
+
+\subsection{The three-dimensional nonlinear contact gate}
+For actual Signorini--Coulomb contact, the pressure is an unknown reaction, typically in a negative-order trace space. It must satisfy normal nonpenetration and complementarity, while tangential traction must satisfy the friction-direction condition. The rate-and-state step theorem instead assumes $p\in L^\infty$ is prescribed. Substitution of an unknown reaction into that theorem is not justified.
+
+Theorem \ref{thm:bubble} disproves a dominated-field compactness extension, and Theorems \ref{thm:Lq} and \ref{thm:ratio} give sufficient repairs. These are not automatic regularity properties of contact solutions. The revised Theorem \ref{thm:matchedexistence} now proves actual incremental contact existence in a specified three-dimensional matched-interface class. Its proof uses the contact structure and compactness of the cross block, not the prescribed-pressure rate-and-state theorem. Theorem \ref{thm:classification} transfers the obstruction to actual bounded-body cross operators whenever the leading cross coefficient is nonzero, but does not establish nonlinear nonexistence. The positive-bubble safeguard in Proposition \ref{prop:nonembedding} remains relevant.
+
+General mismatched three-dimensional interfaces, contact edges, rough material coefficients, evolving geometry, and the continuous-time contact limit remain outside the new existence theorem. In particular the matching condition is sufficient for existence, not proved necessary. The closed-interface and remote-clamp assumptions make the boundary calculus and trace lifting precise; they are not omitted technicalities.
+
+\begin{table}[ht]
+\centering\small
+\caption{Scope relative to four broader friction questions. ``Not established'' refers to this manuscript, not a claim of impossibility.}
+\begin{tabular}{>{\raggedright\arraybackslash}p{.24\linewidth}>{\raggedright\arraybackslash}p{.38\linewidth}>{\raggedright\arraybackslash}p{.29\linewidth}}
+\toprule
+Target & Established here & Not established here\\\midrule
+Purely elastic existence & Every prescribed-pressure implicit step; global homogeneous characteristic benchmark & General multidimensional continuous-time existence\\[4pt]
+Slip law; remove $b/a<2$ & Both laws, both regularisations, no ratio restriction for logarithmic-BE step existence; small-step uniqueness & General continuous-time multidimensional slip-law well-posedness\\[4pt]
+Nonlinear bimaterial sliding & Exact homogeneous antiplane characteristic problem for arbitrary positive impedances & General in-plane interface with along-fault dependence and normal-stress coupling\\[4pt]
+Three-dimensional incremental contact & Actual matched-interface existence, strong stability and reaction approximation; bounded-body obstruction and sharp repairs & Arbitrary-coefficient three-dimensional Signorini--Coulomb existence or a valid nonexistence example\\\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Reproducibility and publication claims}\label{sec:repro}
+The archive contains the manuscript and source, a point-by-point referee response, two verification modules, machine-readable results, numerical layer and slab data, the unmodified supplied reviewer script and results, and revised claim, proof, source and falsifier ledgers. From the archive root, run
+\begin{minipage}{\linewidth}
+\begin{verbatim}
+python code/verify.py --out evidence
+python provenance/reviewer_independent_checks.py \
+  --out evidence/reviewer_replay/independent_results.json
+\end{verbatim}
+\end{minipage}
+The main replay has twelve check groups. Exact checks cover rational multiplicity signs, state and threshold identities, half-space and finite-layer Navier modes, traction matrices, reflection, concentration constants, the logarithmic-state coordinate shift, and the low-frequency coefficient $-7/40$. Numerical checks cover twelve illustrative roots, seventy state edge cases, five threshold evaluations, twenty scalar slab/mesh cases with sixty roots, ten matched/mismatched finite-layer spectra at 100 digits, and energies and curvatures checked at 40 and 70 digits. Exact identities, numerical quadrature and analytic proofs are separate assurance categories.
+
+The contact existence theorem depends on the explicit type-$(S)_+$ and coercivity proof, the established pseudomonotone variational-inequality theorem, and the verified use of smooth elastic boundary-symbol calculus. Floating-point agreement proves none of those functional-analytic statements. An independent AI-assisted v1.0 audit reproduced the earlier computations; replaying its unchanged script in this revision is a regression check, not an independent review of the new theorems. No proof-assistant or human specialist certification is claimed.
+
+The source audit explicitly credits existing logarithmic-Euler formulations, frozen-flow arbitrary-step existence, elimination-induced nonconvexity, the classical elastic-similarity condition, and the normal-reaction variational formulation. The candidate advance is their precise use in an actual matched-interface contact theorem, together with the operator classification and specified rate-and-state refinements. Priority outside the inspected corpus remains unestablished. The strongest next review question is whether the compact-cross-compliance argument and its smooth bounded-body realisation survive specialist scrutiny; adding theorem counts or computational precision cannot substitute for that review.
+
+A defensible submission description is: \emph{matched-interface incremental existence and an exact cross-compactness classification in three-dimensional elastic contact, with separate implicit rate-and-state refinements}. A claim to solve all general friction or continuous-time questions would exceed this manuscript.
+
+\begin{thebibliography}{99}
+\bibitem{BI}
+Ballard, P., \& Iurlano, F. (2024).
+Existence results for the time-incremental elastic contact problem with Coulomb friction in 2D.
+\emph{Mathematical Models and Methods in Applied Sciences, 34}(12), 2217--2263.
+\url{https://doi.org/10.1142/S0218202524500477}.
+Theorem and remark numbers in this manuscript refer to the revised preprint,
+\url{https://arxiv.org/abs/2303.16298v2}, revised 28 January 2026.
+
+\bibitem{Jarusek}
+Jaru\v{s}ek, J. (1983). Contact problems with bounded friction. Coercive case.
+\emph{Czechoslovak Mathematical Journal, 33}(2), 237--261.
+\url{https://doi.org/10.21136/CMJ.1983.101875}.
+
+\bibitem{Dyatlov}
+Dyatlov, S. (2010). \emph{Pseudodifferential operators and elliptic regularity}.
+Lecture notes, April 15. Sections on kernels and pseudodifferential operators, pp. 5--9.
+\url{https://math.mit.edu/~dyatlov/files/2010/psdoer.pdf}.
+
+\bibitem{Brezis}
+Br\'ezis, H. (1968). \'Equations et in\'equations non lin\'eaires dans les espaces vectoriels en dualit\'e.
+\emph{Annales de l'Institut Fourier, 18}(1), 115--175.
+\url{https://doi.org/10.5802/aif.280}. Corollary 30; the version used here is also stated in \cite[Theorem A.3]{BI}.
+
+\bibitem{TanLiu}
+Tan, X., \& Liu, G. (2023). Determining Lam\'e coefficients by the elastic Dirichlet-to-Neumann map on a Riemannian manifold.
+\emph{Inverse Problems, 39}(9), 095004.
+\url{https://doi.org/10.1088/1361-6420/ace649}.
+Public preprint: \url{https://arxiv.org/abs/2211.06650}. The principal symbol is Theorem 1.1 of version 1.
+
+\bibitem{ArgatovMishuris}
+Argatov, I., \& Mishuris, G. (2018). Tangential contact of elastically similar bodies.
+In \emph{Indentation testing of biological materials} (pp. 129--146). Springer.
+\url{https://doi.org/10.1007/978-3-319-78533-2_6}.
+Publication record and abstract screened; not used as an uninspected bounded-body existence theorem.
+
+\bibitem{GKP}
+Gr\"aser, C., Kornhuber, R., \& Podlesny, J. (2024). Numerical simulation of multiscale fault systems with rate- and state-dependent friction.
+\emph{Computational Geosciences, 28}, 1--21.
+\url{https://doi.org/10.1007/s10596-023-10231-4}.
+Published online 31 October 2023; theorem-level comparison uses the 2024 journal version.
+
+\bibitem{PKRO}
+Pipping, E., Kornhuber, R., Rosenau, M., \& Oncken, O. (2016). On the efficient and reliable numerical solution of rate-and-state friction problems.
+\emph{Geophysical Journal International, 204}(3), 1858--1866.
+\url{https://doi.org/10.1093/gji/ggv512}.
+
+\bibitem{PippingThesis}
+Pipping, E. (2014).
+\emph{Dynamic problems of rate-and-state friction in viscoelasticity}
+[Doctoral dissertation, Freie Universit\"at Berlin].
+In particular, Section 3.4 and Corollary 3.8, pp. 25--26.
+Institutional record:
+\url{https://www.mi.fu-berlin.de/en/math/groups/ag-numerik/theses_neu/pipping/index.html}.
+Author publication record: \url{https://pipping.org/elias/}.
+The dissertation was defended in December 2014; some repository records use 2015.
+
+\bibitem{Pipping2019}
+Pipping, E. (2019).
+Existence of long-time solutions to dynamic problems of viscoelasticity with rate-and-state friction.
+\emph{ZAMM--Journal of Applied Mathematics and Mechanics, 99}(11), e201800263.
+\url{https://doi.org/10.1002/zamm.201800263}.
+Preprint: \url{https://arxiv.org/abs/1703.04289}.
+
+\bibitem{PSK}
+Pipping, E., Sander, O., \& Kornhuber, R. (2015).
+Variational formulation of rate- and state-dependent friction problems.
+\emph{ZAMM--Journal of Applied Mathematics and Mechanics, 95}(4), 377--395.
+\url{https://doi.org/10.1002/zamm.201300062}.
+First published online in 2013. Public preprint:
+\url{https://www.igpm.rwth-aachen.de/Download/reports/pdf/IGPM359.pdf}.
+
+\bibitem{RR}
+Ranjith, K., \& Rice, J. R. (2001).
+Slip dynamics at an interface between dissimilar materials.
+\emph{Journal of the Mechanics and Physics of Solids, 49}(2), 341--361.
+\url{https://doi.org/10.1016/S0022-5096(00)00029-6}.
+
+\bibitem{RLR}
+Rice, J. R., Lapusta, N., \& Ranjith, K. (2001).
+Rate and state dependent friction and the stability of sliding between elastically deformable solids.
+\emph{Journal of the Mechanics and Physics of Solids, 49}(9), 1865--1898.
+\url{https://doi.org/10.1016/S0022-5096(01)00042-4}.
+\end{thebibliography}
+\end{document}

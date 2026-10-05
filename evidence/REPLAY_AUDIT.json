@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "version": "2.0",
+  "date": "2026-10-05",
+  "expanded_verification_groups_passed": 12,
+  "fresh_replay_comparisons": [
+    {
+      "file": "verification.json",
+      "byte_identical": true,
+      "sha256": "3d4fe9eea9b9ab184dd6b8ee57c2ffccbddf643a54b0186d53f496546df1dfe0"
+    },
+    {
+      "file": "verification.log",
+      "byte_identical": true,
+      "sha256": "5a469a17f6d8fb59c02d559cd58da0ae37c49b4d47f92a52cb21a447125d2fba"
+    },
+    {
+      "file": "revision_verification.json",
+      "byte_identical": true,
+      "sha256": "34a55fee8260f165f561018267a525d18fc485999173a4a297b0018ed5a65b47"
+    },
+    {
+      "file": "revision_verification.log",
+      "byte_identical": true,
+      "sha256": "ba59ec9186c3c6d4d950a4b9a44d987476d7f4df678aa4228462ebca1b4df6f6"
+    },
+    {
+      "file": "finite_element_slabs.csv",
+      "byte_identical": true,
+      "sha256": "3b0a4a0fb84eb92d64d821185d69ff7a004be2a65ed59bc00f0c546a2fbc84c2"
+    },
+    {
+      "file": "matched_layer_spectrum.csv",
+      "byte_identical": true,
+      "sha256": "7f126d274c802c14e05ed302cba79ae3c4fd189087592e0600f9125d32c1b14d"
+    }
+  ],
+  "original_v1_fresh_replay_matches": {
+    "verification.json": true,
+    "verification.log": true,
+    "finite_element_slabs.csv": true
+  },
+  "supplied_reviewer_json_replayed_byte_identically": true,
+  "supplied_reviewer_code": "provenance/reviewer_independent_checks.py (unchanged)",
+  "input_manifest_results": {
+    "v1": 17,
+    "referee": 7,
+    "all_input_hashes_match": true
+  },
+  "reviewer_assembled_fe_max_absolute_formula_error": 7.105427357601002e-14,
+  "verification_limit": "Computational checks support exact identities and numerical illustrations; they do not certify infinite-dimensional analytic proofs. The supplied AI-assisted review concerns v1.0, not the new v2.0 theorems.",
+  "new_theorems_independently_reviewed": false,
+  "proof_assistant_verification": false
+}

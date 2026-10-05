@@ -1,0 +1,14 @@
+PASS [exact rational] four multiplicity sign patterns: {'age_peak_lower': '17/6', 'age_valley_upper_asinh': '7799/2800', 'age_load': '14/5', 'slip_peak_lower': '21/8', 'slip_valley_upper_asinh': '593/245', 'slip_load': '5/2', 'method': 'Fraction arithmetic and positive exponential Taylor remainders'}
+PASS [exact symbolic] state maps and sharp BE thresholds: All residuals simplify to zero
+PASS [exact symbolic] 3D isotropic halfspace symbol: Navier residuals, traction matrix, and inverse verified
+PASS [exact symbolic] concentration constants and critical exponent: L defect=pi/8; K defect=-pi^2/4; critical p=4/3
+PASS [high-precision supplementary] root illustrations: 12 roots in the analytically certified disjoint intervals
+PASS [high-precision supplementary] state-map edge cases: 35 cases per law, including zero and tiny speed and large signed state
+PASS [high-precision supplementary] sharp-threshold illustrations: Five parameter values; symbolic stationarity checked independently
+PASS [high-precision supplementary] conforming slab discretisations: 20 parameter/mesh cases, 60 roots; impedance errors decrease at approximately second order
+PASS [exact symbolic] GKP logarithmic-state coordinate identity: See revision_verification.json for residuals and scope
+PASS [exact symbolic] two-layer modes, tractions, reflection and small-k coefficient: See revision_verification.json for residuals and scope
+PASS [100-digit numerical illustration] matched and mismatched finite-layer compliance: See revision_verification.json for residuals and scope
+PASS [40/70-digit numerical illustration] stationary-root energies and scalar curvatures: See revision_verification.json for residuals and scope
+
+All analytic proof obligations remain in paper/manuscript.pdf; not Lean/Coq verification.

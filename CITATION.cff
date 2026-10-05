@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite this unrefereed candidate."
+title: "Cross-compliance compactness in three-dimensional frictional contact"
+authors:
+  - name: Anonymous
+version: 2.1.0-candidate
+date-released: 2026-10-05
+doi: 10.5281/zenodo.23171696
+license: CC0-1.0
+url: https://github.com/ipitchford/compact-cross-compliance-contact

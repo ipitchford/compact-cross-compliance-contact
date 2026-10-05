@@ -1,0 +1,134 @@
+{
+  "reviewed_version": "1.0",
+  "revised_version": "2.0",
+  "date": "2026-10-05",
+  "actions": [
+    {
+      "id": "4.1",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Resolve GKP logarithmic-Euler prior-art comparison",
+      "locations": [
+        "Section 6",
+        "Equation 6.1",
+        "Table 1",
+        "notes/LITERATURE_AUDIT.md"
+      ],
+      "action": "Exact state-coordinate identity; mechanical/pressure/viscosity/state-data/integrator/conclusion comparison; reconciled thesis exact-flow versus PSK ageing-only citation chain; removed first-use/unqualified existence novelty."
+    },
+    {
+      "id": "4.2",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Make principal contribution govern opening",
+      "locations": [
+        "Title",
+        "Abstract",
+        "Section 1",
+        "Sections 4-5",
+        "Section 15"
+      ],
+      "action": "Contact-first narrative now leads with actual matched-interface existence and cross-operator classification; supplied-brief history moved to scope records."
+    },
+    {
+      "id": "4.3",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Keep negative results at exact logical scope",
+      "locations": [
+        "Sections 3.3, 5.2 and 14",
+        "Theorem 5.3 and following remark",
+        "STATUS.json"
+      ],
+      "action": "Weak-product failure not contact nonexistence; discrete multiplicity not evolution nonuniqueness; repairs are assumptions. New existence is explicitly matched, smooth, anchored, incremental and unknown-reaction."
+    },
+    {
+      "id": "4.4",
+      "priority": "should",
+      "status": "addressed",
+      "request": "Connect numerical roots to variational theorem",
+      "locations": [
+        "Section 11",
+        "Equation 11.3",
+        "Table 4",
+        "Theorem 12.1"
+      ],
+      "action": "Numerical 40/70-digit energy and scalar curvature annotation; local restricted curvature versus global minimiser versus dynamics distinguished; lowest displayed branch not certified global minimum."
+    },
+    {
+      "id": "M1",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Specify characteristic continuity topology",
+      "locations": [
+        "Theorem 13.1",
+        "Section 13 final proof paragraph"
+      ],
+      "action": "Fixed material parameters; L-infinity input convergence on bounded finite-time sets, uniform state convergence, L-infinity interface outputs; compatible local field/displacement topologies."
+    },
+    {
+      "id": "M2",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Name the machine-readable output component",
+      "locations": [
+        "code/verify.py",
+        "evidence/verification.json",
+        "code/revision_checks.py"
+      ],
+      "action": "Replaced ambiguous cross_multiplier field by Cartesian u3 and outward un fields; n=-e3 and un=-u3 explicit."
+    },
+    {
+      "id": "M3",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Qualify sharpness",
+      "locations": [
+        "Abstract",
+        "Section 1",
+        "Section 10"
+      ],
+      "action": "Sharp only for stated constitutive thresholds and pressure exponent/classification; mechanical uniqueness is sufficient, not claimed sharp."
+    },
+    {
+      "id": "M4",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Remove process-specific opening language",
+      "locations": [
+        "Title",
+        "Abstract",
+        "Section 1"
+      ],
+      "action": "Main opening presents mathematical objects and results, not an assignment history."
+    },
+    {
+      "id": "M5",
+      "priority": "required",
+      "status": "addressed",
+      "request": "Preserve limits of verification claims",
+      "locations": [
+        "Section 15",
+        "README.md",
+        "notes/PROOF_AUDIT.md"
+      ],
+      "action": "Exact algebra, numerical support, analytic arguments and independent review are separated; original AI-assisted review does not certify new theorems."
+    },
+    {
+      "id": "R1",
+      "priority": "optional_research",
+      "status": "developed_new_theorems",
+      "request": "Connect obstruction or repairs to actual contact operators/solutions",
+      "locations": [
+        "Theorem 4.1",
+        "Corollaries 4.2-4.3",
+        "Lemma 5.1",
+        "Theorems 5.2-5.3",
+        "Section 5.3"
+      ],
+      "action": "Actual compact-cross-compliance existence; smooth matched bounded-body realisation; strong data stability and reaction approximation; iff dominated-pairing classification and finite-layer nondecoupling check."
+    }
+  ],
+  "rating_claim": "Closer to requested standard through substantive additional mathematics; no achieved REF rating asserted",
+  "new_theorems_independently_reviewed": false
+}

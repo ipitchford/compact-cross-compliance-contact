@@ -1,0 +1,74 @@
+{
+  "all_match": true,
+  "count": 17,
+  "files": [
+    {
+      "path": "EDITORIAL_NOTE.md",
+      "match": true
+    },
+    {
+      "path": "INPUT_RECORD.json",
+      "match": true
+    },
+    {
+      "path": "README.md",
+      "match": true
+    },
+    {
+      "path": "STATUS.json",
+      "match": true
+    },
+    {
+      "path": "code/verify.py",
+      "match": true
+    },
+    {
+      "path": "evidence/finite_element_slabs.csv",
+      "match": true
+    },
+    {
+      "path": "evidence/pdf_preflight.json",
+      "match": true
+    },
+    {
+      "path": "evidence/verification.json",
+      "match": true
+    },
+    {
+      "path": "evidence/verification.log",
+      "match": true
+    },
+    {
+      "path": "notes/CLAIM_LEDGER.md",
+      "match": true
+    },
+    {
+      "path": "notes/FALSIFIER_LEDGER.md",
+      "match": true
+    },
+    {
+      "path": "notes/LITERATURE_AUDIT.md",
+      "match": true
+    },
+    {
+      "path": "notes/PROBLEM4.md",
+      "match": true
+    },
+    {
+      "path": "notes/PROOF_AUDIT.md",
+      "match": true
+    },
+    {
+      "path": "paper/manuscript.pdf",
+      "match": true
+    },
+    {
+      "path": "paper/manuscript.tex",
+      "match": true
+    },
+    {
+      "path": "requirements.txt",
+      "match": true
+    }
+  ]
+}
